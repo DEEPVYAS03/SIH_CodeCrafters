@@ -6,7 +6,8 @@ import tw from 'twrnc'
 import { StatusBar } from 'expo-status-bar'
 import Categories from '../components/categories'
 import FeaturedRow from '../components/featuredRow'
-import {featured} from '../constants'
+import { featured } from '../constants'
+import { TouchableOpacity } from 'react-native'
 
 export default function HomeScreen() {
   return (
@@ -23,7 +24,9 @@ export default function HomeScreen() {
           </View>
         </View>
         <View style={tw`p-3 rounded-full bg-[#fb923c]`}>
-          <Icon.Sliders height={20} width={20} strokeWidth="2.5" stroke="white" />
+          <TouchableOpacity>
+            <Icon.Sliders height={20} width={20} strokeWidth="2.5" stroke="white" />
+          </TouchableOpacity>
         </View>
       </View>
 
@@ -35,28 +38,26 @@ export default function HomeScreen() {
           paddingBottom: 50
         }}
       >
-          {/* categories */}
+        {/* categories */}
         <Categories />
 
-          {/* featured */}
+        {/* featured */}
 
-          <View style={tw`mt-5`}>
-              {
-                [featured,featured,featured].map((item,index) => {
-                  return (
-                    <FeaturedRow
-                    key={index}
-                    title={item.title}
-                    restaurants={item.restaurants}
-                    description={item.description}
-                    />
-                  )
-                })
-              }
+        <View style={tw`mt-5`}>
+          {
+            [featured, featured, featured].map((item, index) => {
+              return (
+                <FeaturedRow
+                  key={index}
+                  title={item.title}
+                  restaurants={item.restaurants}
+                  description={item.description}
+                />
+              )
+            })
+          }
 
-            </View>
-
-
+        </View>
       </ScrollView>
     </SafeAreaView>
   )

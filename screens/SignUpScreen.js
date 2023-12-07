@@ -1,16 +1,52 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, Image, TextInput, Modal } from 'react-native';
+import React, { useState ,useEffect } from 'react';
+import { View, Text, TouchableOpacity, Image, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ArrowLeftIcon , MapPinIcon } from 'react-native-heroicons/solid';
 import { useNavigation } from '@react-navigation/native';
 import tw from 'twrnc';
+import SingleDropdown from '../components/SingleDropdown'
 import MultiSelectComponent from '../components/MultiSelectComponent';
 
 export default function SignUpScreen() {
     const navigation = useNavigation();
     const [presentIncome, setPresentIncome] = useState('');
-    const [location, setLocation] = useState('');
+    const [selectedState, setSelectedState] = useState(null);
+    const [selectedDistrict, setSelectedDistrict] = useState(null);
+     const [selectedVillage, setSelectedVillage] = useState(null);
 
+  const states = [
+    { label: 'Tamil Nadu', value: 'TN' },
+    // Add more states as needed
+  ];
+
+  const districts = {
+    TN: [
+      { label: 'Dharmapuri', value: 'Dharmapuri' },
+      { label: 'Salem', value: 'Salem' },
+      { label: 'Karur', value: 'Karur' },
+      // Add more districts for other states
+    ],
+  };
+
+  const villages = {
+    Dharmapuri: [
+      { label: 'Kuppur', value: 'Kuppur' },
+      { label: 'Mookanur', value: 'Mookanur' },
+      // Add more villages for other districts
+    ],
+    Salem: [
+      // Villages for Salem
+    ],
+    Karur: [
+      // Villages for Karur
+    ],
+    // Add more districts and villages as needed
+  };
+
+  useEffect(() => {
+    // Your logic for handling state updates goes here
+    // For example, you can perform actions based on selectedState, selectedDistrict, etc.
+  }, [selectedState, selectedDistrict, selectedVillage]);
 
     return (
 
@@ -35,7 +71,7 @@ export default function SignUpScreen() {
                 <View style={tw`form space-y-2`}>
                    
                     <MultiSelectComponent />
-
+                    
 
                     <Text style={tw`text-gray-700 ml-4`}>Present Income</Text>
                     <TextInput
@@ -45,16 +81,7 @@ export default function SignUpScreen() {
                         onChangeText={setPresentIncome}
                     />
                     <Text style={tw`text-gray-700 ml-4`}>Location</Text>
-                <View >
-                    {/* <MapPinIcon size={40} color="gray" /> */}
-                    <TextInput
-                        style={tw`p-4 bg-gray-100 text-gray-700 rounded-2xl mb-3`}
-                        placeholder="Enter location"
-                        value={location}
-                        onChangeText={setLocation}
-                    />
-                    
-                </View>
+                    <SingleDropdown/>
                     <TouchableOpacity
                     onPress={() => navigation.navigate('Home')}
                      style={tw`py-3 bg-yellow-400 rounded-xl`} >

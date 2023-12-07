@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { MultiSelect } from 'react-native-element-dropdown';
+import { Dropdown } from 'react-native-element-dropdown';
 import AntDesign from '@expo/vector-icons/AntDesign';
 
 const data = [
@@ -8,12 +8,12 @@ const data = [
   { label: 'Nhi pata hai', value: '2' },
 ]
 
-const MultiSelectComponent = () => {
+const SingleDropdown = () => {
   const [selected, setSelected] = useState([]);
 
   return (
     <View style={styles.container}>
-      <MultiSelect
+      <Dropdown
         style={styles.dropdown}
         placeholderStyle={styles.placeholderStyle}
         selectedTextStyle={styles.selectedTextStyle}
@@ -28,13 +28,14 @@ const MultiSelectComponent = () => {
         onChange={item => {
           setSelected(item);
         }}
+    
         selectedStyle={styles.selectedStyle}
       />
     </View>
   );
 };
 
-export default MultiSelectComponent;
+export default SingleDropdown;
 
 const styles = StyleSheet.create({
   container: { padding: 16 },
