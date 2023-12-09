@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import {
   View,
@@ -10,27 +12,27 @@ import {
 import tw from "twrnc";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-import { MyBezierLineChart,MyBarGraph } from "../components/charts";
+import { MyBezierLineChart, MyBarGraph } from "../components/charts";
 import { useNavigation } from "@react-navigation/native";
 
 
 const Dashboard = () => {
   const navigation = useNavigation();
   return (
-    <ScrollView>
 
-        {/* Header */}
+    <>
+      {/* Header */}
       <View style={tw`flex mt-7 flex-row mt-10 h-18`}>
         <View style={tw`flex-1 flex-row `}>
-          <TouchableOpacity onPress={()=>navigation.navigate('Home')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Home')}>
             <Ionicons
-            style={tw`mt-3 mr-2`}
-            name="arrow-back"
-            size={30}
-            color="black"
-          />
+              style={tw`mt-3 mr-2`}
+              name="arrow-back"
+              size={30}
+              color="black"
+            />
           </TouchableOpacity>
-          <TouchableOpacity onPress={()=>navigation.openDrawer()}>
+          <TouchableOpacity onPress={() => navigation.openDrawer()}>
             <Image
               source={require("../assets/user-profile.jpg")}
               style={tw`w-15 h-15 rounded-full ml-1`}
@@ -46,22 +48,22 @@ const Dashboard = () => {
         </View>
       </View>
 
-    
-      <View
-        style={tw`mt-1 bg-[#2E335A] h-40 m-1 overflow-hidden  rounded-lg`}
-      >
-       {/* My dashboard */}
-        <View style={tw`flex-row rounded-lg`}>
-          <View>
-            <Text style={tw`text-white mt-5 ml-5 text-2xl`}>My</Text>
-            <Text style={tw`text-white ml-5 text-2xl`}>Dashboard</Text>
+      <ScrollView>
+        <View
+          style={tw`mt-1 bg-[#2E335A] h-40 m-1 overflow-hidden  rounded-lg`}
+        >
+          {/* My dashboard */}
+          <View style={tw`flex-row rounded-lg`}>
+            <View>
+              <Text style={tw`text-white mt-5 ml-5 text-2xl`}>My</Text>
+              <Text style={tw`text-white ml-5 text-2xl`}>Dashboard</Text>
+            </View>
+            <View style={tw`mt-5 h-38 ml-30`}>
+              <Text style={tw`text-white`}>Chart</Text>
+            </View>
           </View>
-          <View style={tw`mt-5 h-38 ml-30`}>
-            <Text style={tw`text-white`}>Chart</Text>
-          </View>
-        </View>
 
-        {/* <View style={tw`flex flex-row`}>
+          {/* <View style={tw`flex flex-row`}>
           <Text style={tw`text-white text-2xl font-bold mb-5 ml-2`}>
             Weather Updates
           </Text>
@@ -101,9 +103,9 @@ const Dashboard = () => {
           ></View>
           <View></View>
         </View> */}
-      </View>
-      {/* weather updates */}
-      <View style={tw`rounded-t-lg mx-1 flex flex-row bg-[#2E335A]`}>
+        </View>
+        {/* weather updates */}
+        <View style={tw`rounded-t-lg mx-1 flex flex-row bg-[#2E335A]`}>
           <Text style={tw`text-white text-2xl font-bold mb-5 ml-2`}>
             Weather Updates
           </Text>
@@ -134,7 +136,7 @@ const Dashboard = () => {
           </View>
         </View>
 
-       {/* dabbe */}
+        {/* dabbe */}
         <View style={tw`h-50 mt-3 flex flex-row rounded-lg bg-white mx-1 justify-between`}>
           <View
             style={tw`bg-gray-200  h-[95%] ml-1 w-[46.5%] rounded-3xl`}
@@ -142,17 +144,18 @@ const Dashboard = () => {
           <View
             style={tw`bg-gray-200  h-[95%] mr-1 w-[46.5%] rounded-3xl`}
           ></View>
-          
+
         </View>
-      {/* </ImageBackground> */}
-      
-      <View style={tw`mx-1 pb-5 rounded-b-3xl `}>
-        <MyBezierLineChart/>
-        
-        <MyBarGraph />
-   
-      </View>
-    </ScrollView>
+        {/* </ImageBackground> */}
+
+        <View style={tw`mx-1 pb-5 rounded-b-3xl `}>
+          <MyBezierLineChart />
+
+          <MyBarGraph />
+
+        </View>
+      </ScrollView>
+    </>
   );
 };
 
