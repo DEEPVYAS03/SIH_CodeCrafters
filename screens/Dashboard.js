@@ -1,6 +1,6 @@
 
 
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -14,10 +14,22 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 
 import { MyBezierLineChart, MyBarGraph } from "../components/charts";
 import { useNavigation } from "@react-navigation/native";
-
+import NotificationModal from "../components/NotificationModal";
+import Message from "../components/Message";
 
 const Dashboard = () => {
   const navigation = useNavigation();
+
+  const [iconClicked, setIconClicked] = useState(false);
+
+  const handleIconClick = () => {
+    setIconClicked(true);
+  };
+
+  const handleModalClose = () => {
+    setIconClicked(false);
+  };
+
   return (
 
     <>
@@ -44,8 +56,15 @@ const Dashboard = () => {
           </View>
         </View>
         <View style={tw`mt-2 mr-3`}>
+        <TouchableOpacity onPress={handleIconClick}>
           <Ionicons name="notifications" size={28} color="black" />
+        </TouchableOpacity>
         </View>
+        <NotificationModal
+        isVisible={iconClicked}
+        message=<Message/>
+        onClose={handleModalClose}
+      />
       </View>
 
       <ScrollView>
