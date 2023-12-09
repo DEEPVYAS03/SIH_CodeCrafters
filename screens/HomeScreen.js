@@ -1,4 +1,4 @@
-import { View, Text, TextInput, ScrollView } from 'react-native'
+import { View, Text, TextInput, ScrollView ,Image} from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import * as Icon from 'react-native-feather'
@@ -8,8 +8,11 @@ import Categories from '../components/categories'
 import FeaturedRow from '../components/featuredRow'
 import { featured } from '../constants'
 import { TouchableOpacity } from 'react-native'
+import { useNavigation} from '@react-navigation/native';
 
 export default function HomeScreen() {
+  const navigation = useNavigation();
+  // const isFocused = useIsFocused();
   return (
     <SafeAreaView style={tw`bg-white`}>
       <StatusBar barStyle="dark-content" />
@@ -23,11 +26,12 @@ export default function HomeScreen() {
             <Text style={tw`text-gray-600`}>New York,NYC</Text>
           </View>
         </View>
-        <View style={tw`p-3 rounded-full bg-[#fb923c]`}>
-          <TouchableOpacity>
-            <Icon.Sliders height={20} width={20} strokeWidth="2.5" stroke="white" />
-          </TouchableOpacity>
-        </View>
+
+          <View style={tw`p-[1px] rounded-full `}>
+            <TouchableOpacity onPress={() => navigation.openDrawer()}>
+              <Image source={require('../assets/user-profile.jpg')} style={tw`h-12 w-12 rounded-full`} />
+            </TouchableOpacity>
+          </View>
       </View>
 
       {/* main */}

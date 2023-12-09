@@ -7,11 +7,12 @@ import WelcomeScreen from '../screens/WelcomeScreen';
 import LoginScreen from '../screens/LoginScreen';
 import SignUpScreen from '../screens/SignUpScreen';
 import RestaurantScreen from '../screens/ResturantScreen';
-import ProfileScreen from '../components/ProfileScreen';
-import Dashboard from '../components/Dashboard';
-import Share from '../components/Share';
+import ProfileScreen from '../screens/ProfileScreen';
+import Dashboard from '../screens/Dashboard';
+import Share from '../screens/Share';
 import CustomDrawer from '../components/CustomDrawer';
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import IncomePage from '../screens/incomepage';
 import tw from 'twrnc'
 
 // drawer navigation options
@@ -48,6 +49,7 @@ export function DrawerNavigation() {
   return (
     <NavigationContainer>
     <Drawer.Navigator
+    initialRouteName="Home"
     drawerContent={props => <CustomDrawer {...props} />}
     screenOptions={{
       headerShown: false,
@@ -64,7 +66,7 @@ export function DrawerNavigation() {
             <Ionicons name="home-outline" size={22} color={color} />
           )
         }}/>
-        <Drawer.Screen name="Edit Profile" component={ProfileScreen} 
+        <Drawer.Screen name="Edit Profile" component={IncomePage} 
         options={{
           drawerIcon:({color})=>(
             <Ionicons name="pencil-outline" size={24} color={color} />

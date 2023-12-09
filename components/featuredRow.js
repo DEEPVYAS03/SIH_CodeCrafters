@@ -2,7 +2,7 @@ import React from 'react';
 import { featured } from '../constants'
 import { View, Text, TextInput, ScrollView, TouchableOpacity, Image } from "react-native";
 import tw from 'twrnc'
-import RestaurantCard from './restaurantCard';
+import RestaurantCard from '../screens/restaurantCard';
 
 
 const FeaturedRow = ({ title, description, restaurants }) => {
