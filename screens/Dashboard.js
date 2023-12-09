@@ -109,12 +109,6 @@ const Dashboard = () => {
           <Text style={tw`text-white text-2xl font-bold mb-5 ml-2`}>
             Weather Updates
           </Text>
-          <Ionicons
-            style={tw`ml-1`}
-            name="arrow-forward"
-            size={30}
-            color="white"
-          />
         </View>
 
         {/*  degress*/}
