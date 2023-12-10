@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { MultiSelect } from 'react-native-element-dropdown';
 import AntDesign from '@expo/vector-icons/AntDesign';
+import tw from 'twrnc';
 
 const data = [
   { label: 'Fisheries', value: '1' },
@@ -12,7 +13,7 @@ const MultiSelectComponent = () => {
   const [selected, setSelected] = useState([]);
 
   return (
-    <View style={styles.container}>
+    <View style={tw`px-2 mx-1`}>
       <MultiSelect
         style={styles.dropdown}
         placeholderStyle={styles.placeholderStyle}
@@ -37,7 +38,7 @@ const MultiSelectComponent = () => {
 export default MultiSelectComponent;
 
 const styles = StyleSheet.create({
-  container: { padding: 16 },
+
   dropdown: {
     height: 50,
     backgroundColor: 'transparent',
