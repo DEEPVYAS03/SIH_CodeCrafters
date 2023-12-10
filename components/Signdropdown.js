@@ -108,7 +108,7 @@ const Signdropdown = () => {
           renderLeftIcon={() => (
             <FontAwesome
               style={styles.icon}
-              name="globe"
+              name="map"
               size={20}
             />
           )}
@@ -134,7 +134,7 @@ const Signdropdown = () => {
           renderLeftIcon={() => (
             <FontAwesome
               style={styles.icon}
-              name="map"
+              name="compass"
               size={20}
             />
           )}
@@ -159,7 +159,7 @@ const Signdropdown = () => {
            renderLeftIcon={() => (
             <FontAwesome
               style={styles.icon}
-              name="map"
+              name="map-pin"
               size={20}
             />
           )}
