@@ -16,6 +16,10 @@ import { MyBezierLineChart, MyBarGraph } from "../components/charts";
 import { useNavigation } from "@react-navigation/native";
 import NotificationModal from "../components/NotificationModal";
 import Message from "../components/Message";
+import {Box1} from '../components/charts'
+import {Box2} from '../components/charts'
+import {ProgressRing} from '../components/charts'
+
 
 const Dashboard = () => {
   const navigation = useNavigation();
@@ -77,8 +81,8 @@ const Dashboard = () => {
               <Text style={tw`text-white mt-5 ml-5 text-2xl`}>My</Text>
               <Text style={tw`text-white ml-5 text-2xl`}>Dashboard</Text>
             </View>
-            <View style={tw`mt-5 h-38 ml-30`}>
-              <Text style={tw`text-white`}>Chart</Text>
+            <View style={tw`mt-2 h-38 ml-21`}>
+            <ProgressRing/>
             </View>
           </View>
 
@@ -131,7 +135,7 @@ const Dashboard = () => {
         </View>
 
         {/*  degress*/}
-        <View style={tw`flex-row rounded-b-lg h-40 mx-1 justify-between bg-[#2E335A]`}>
+        <View style={tw`flex-row rounded-b-lg h-35 mx-1 justify-between bg-[#2E335A]`}>
           <View>
             <View>
               <Text style={tw`m-7 text-white text-2xl font-bold`}>
@@ -148,24 +152,39 @@ const Dashboard = () => {
             ></Image>
           </View>
         </View>
-
+        <View>
+        <View style={tw`mx-1 pb-5 rounded-b-3xl bg-white  `}>
+            <Text></Text>
+          <MyBezierLineChart />
+          </View>
+          </View>
         {/* dabbe */}
-        <View style={tw`h-50 mt-3 flex flex-row rounded-lg bg-white mx-1 justify-between`}>
+        <View style={tw`h-55 py-3 flex flex-row rounded-lg bg-white mx-1 justify-between`}>
           <View
             style={tw`bg-gray-200  h-[95%] ml-1 w-[46.5%] rounded-3xl`}
-          ></View>
+          >
+            <Box1/>
+            
+          </View>
           <View
             style={tw`bg-gray-200  h-[95%] mr-1 w-[46.5%] rounded-3xl`}
-          ></View>
+          >
+            <Box2/>
+          </View>
 
         </View>
         {/* </ImageBackground> */}
 
-        <View style={tw`mx-1 pb-5 rounded-b-3xl `}>
+        <View style={tw`mx-1 pb-5 rounded-b-3xl bg-white  `}>
+          {/* <View>
+            <Text></Text>
           <MyBezierLineChart />
+          </View> */}
 
+
+          <View>
           <MyBarGraph />
-
+          </View>
         </View>
       </ScrollView>
     </>

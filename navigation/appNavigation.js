@@ -14,6 +14,7 @@ import CustomDrawer from '../components/CustomDrawer';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import IncomePage from '../screens/incomepage';
 import tw from 'twrnc'
+import EditProfile from '../screens/EditProfile';
 
 // drawer navigation options
 import 'react-native-gesture-handler';
@@ -66,7 +67,7 @@ export function DrawerNavigation() {
             <Ionicons name="home-outline" size={22} color={color} />
           )
         }}/>
-        <Drawer.Screen name="Edit Profile" component={IncomePage} 
+        <Drawer.Screen name="Edit Profile" component={EditProfile} 
         options={{
           drawerIcon:({color})=>(
             <Ionicons name="pencil-outline" size={24} color={color} />
