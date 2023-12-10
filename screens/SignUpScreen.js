@@ -102,7 +102,7 @@ export default function SignUpScreen() {
                   
 
                     <TouchableOpacity
-                    onPress={() => navigation.navigate('Home')}
+                    onPress={() => navigation.navigate('Login')}
                      style={tw`py-3 bg-yellow-400 rounded-xl mb-7 mt-2`} >
                         <Text style={tw`text-xl font-bold text-center text-gray-700`}>Sign Up</Text>
                     </TouchableOpacity>

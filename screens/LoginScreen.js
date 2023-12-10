@@ -54,7 +54,7 @@ export default function LoginScreen() {
           />
          
           <TouchableOpacity 
-         onPress={() => navigation.navigate('SignUp')}
+         onPress={() => navigation.navigate('Home')}
           style={tw`py-3 bg-yellow-400 rounded-xl mt-4 `}>
             <Text style={tw`text-xl font-bold text-center text-gray-700`}>Login</Text>
           </TouchableOpacity>

@@ -26,6 +26,16 @@ export default function WelcomeScreen() {
               Log In
             </Text>
           </TouchableOpacity>
+
+          <TouchableOpacity onPress={()=>navigation.navigate('SignUp')}>
+            <View style={tw`flex-row justify-center mt-2`}>
+              <Text style={tw`text-white font-medium text-lg `}>Don't have an account? 
+              <Text style={tw`font-bold text-yellow-400`}>
+                Signup
+                </Text>
+                </Text>
+            </View>
+          </TouchableOpacity>
         </View>
       </View>
     </SafeAreaView>
