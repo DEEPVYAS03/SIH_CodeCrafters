@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState , useEffect } from 'react';
 import { View, Text, TouchableOpacity, Image, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ArrowLeftIcon } from 'react-native-heroicons/solid';
@@ -9,10 +9,66 @@ import tw from 'twrnc';
 import { TouchableHighlight } from 'react-native';
 import axios from 'axios';
 
+
+
 export default function LoginScreen() {
   const [phone, setPhone] = useState('');
-  const [otp,setOtp] = useState('')
+  const [otp, setOtp] = useState('');
+  const [sendOtpClicked, setSendOtpClicked] = useState(false); // Flag to track whether "Send OTP" button is clicked
   const navigation = useNavigation();
+  useEffect(() => {
+    // This will be called when the component mounts or when "Send OTP" button is clicked
+    if (sendOtpClicked) {
+      sendOTP();
+      setSendOtpClicked(false); // Reset the flag
+    }
+  }, [sendOtpClicked]); // Dependency includes the flag to run effect when the flag changes
+
+  const sendOTP = async () => {
+    try {
+      const response = await axios.post('https://sih-backend.vercel.app/api/getOTP', {
+        number: phone,
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleSendOTPClick = () => {
+    if (!sendOtpClicked) {
+      setSendOtpClicked(true);
+    } // Set the flag when "Send OTP" button is clicked
+  };
+
+
+  const verifyOTP = async () => {
+    try{
+    const data = {
+      number: phone,
+      otp: otp,
+    }
+    console.log(data);
+      const response = await axios.post('https://sih-backend.vercel.app/api/verifyOTP', data);
+      
+      console.log(JSON.stringify(response.data));
+
+      if (response.data.status === 'success') {
+        if (response.data.isUser) {
+          // User is verified, navigate to Home
+          navigation.navigate('Home');
+        } else {
+          // User is not verified, navigate to Signup
+          navigation.navigate('SignUp');
+        }
+      } else {
+        console.log('Error: OTP verification failed');
+      }
+    } catch (error) {
+      console.log('Error:', error);
+    }
+  };
+  
   return (
     <View style={tw`flex-1`}>
       <SafeAreaView style={tw`flex `}>
@@ -35,11 +91,13 @@ export default function LoginScreen() {
             <TextInput
               style={tw`p-4 bg-gray-100 text-gray-700 rounded-2xl mb-3 flex-1`}
               placeholder="Enter phone number"
+              keyboardType='numeric'
               value={phone}
               onChangeText={setPhone}
             />
             <TouchableOpacity
               style={tw`bg-yellow-400 p-4 rounded-2xl ml-3`}
+              onPress={handleSendOTPClick}
             >
               <Text style={tw`text-gray-700`}>Send OTP</Text>
             </TouchableOpacity>
@@ -51,10 +109,11 @@ export default function LoginScreen() {
             placeholder="password"
             value={otp}
             onChangeText={setOtp}
+            keyboardType='numeric'
           />
          
           <TouchableOpacity 
-         onPress={() => navigation.navigate('Home')}
+        onPress={verifyOTP}
           style={tw`py-3 bg-yellow-400 rounded-xl mt-4 `}>
             <Text style={tw`text-xl font-bold text-center text-gray-700`}>Login</Text>
           </TouchableOpacity>
