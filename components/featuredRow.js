@@ -3,9 +3,26 @@ import { featured } from '../constants'
 import { View, Text, TextInput, ScrollView, TouchableOpacity, Image } from "react-native";
 import tw from 'twrnc'
 import RestaurantCard from '../screens/restaurantCard';
+import { useState } from 'react'
 
 
 const FeaturedRow = ({ title, description, restaurants }) => {
+
+ const [recommend,setrecommend]= useState([]);
+
+
+// const recommendprojects= async() =>
+// {
+//   const uid = AsyncStorage.getItem('userid');
+//   const response= await axios.get('https://sih-backend.vercel.app/api/user/{uid}/recommend/projets/10000');
+//   setrecommend(response.data.data);
+// console.log(response.data.data);
+   
+
+// }
+// recommendprojects();
+
+
     return (
         <View>
             <View style={tw`flex-row justify-between items-center px-4`}>
@@ -26,9 +43,9 @@ const FeaturedRow = ({ title, description, restaurants }) => {
                 style={tw`overflow-visible py-5`}
             >
                 {
-                    restaurants.map((restaurant, index) => (
+                     restaurants.map((project, index) => (
                         <RestaurantCard
-                        item={restaurant}
+                        item={project}
                         key={index}
 
                         />

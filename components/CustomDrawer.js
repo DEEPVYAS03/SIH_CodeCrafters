@@ -5,6 +5,7 @@ import tw from 'twrnc'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome'
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 
 const CustomDrawer = (props) => {
@@ -27,10 +28,15 @@ const CustomDrawer = (props) => {
                 <DrawerItemList {...props} />
             </DrawerContentScrollView>
             <View style={{ padding: 20, borderTopWidth: 1, borderTopColor: '#ccc' }}>
-                <TouchableOpacity onPress={() => navigation.navigate('Welcome')} style={{ paddingVertical: 15 }}>
+                <TouchableOpacity onPress={() => {
+
+                    AsyncStorage.removeItem('userid')
+                    navigation.navigate('Welcome')
+
+            }} style={{ paddingVertical: 15 }}>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <Ionicons name='exit-outline' size={22} />
-                        <Text style={{ fontSize: 15, marginLeft: 5 }}>Sign Out</Text>
+                        <Text style={{ fontSize: 15, marginLeft: 5 }} >Sign Out</Text>
                     </View>
 
                 </TouchableOpacity>

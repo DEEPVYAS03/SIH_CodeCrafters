@@ -6,15 +6,56 @@ import tw from 'twrnc'
 import { StatusBar } from 'expo-status-bar'
 import Categories from '../components/categories'
 import FeaturedRow from '../components/featuredRow'
-import { featured } from '../constants'
 import { TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
-import Ionicons from 'react-native-vector-icons/Ionicons'
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import axios from 'axios';
+import {useState,useEffect} from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import {featured}  from '../constants';
+
+
+
 
 export default function HomeScreen() {
+const [project,setprojects]= useState();
+const [recommend,setrecommend]= useState([]);
+const projects= async() => 
+{
+
+  const response= await axios.get('https://sih-backend.vercel.app/api/user/allProjects');
+  
+  setprojects(response.data.data);
+  
+  
+}
+const recommendprojects= async() =>
+{
+
+  const response= await axios.get('https://sih-backend.vercel.app/api/user/657151e98507dda11904d869/recommend/projets/10000');
+  setrecommend(response.data.data);
+  
+
+  
+
+}
+
+
+  //  recommendprojects();
+  useEffect(() =>{
+
+    recommendprojects();
+
+  }, []);
+
+
+
   const navigation = useNavigation();
   // const isFocused = useIsFocused();
+  const district = 'Kolkata';   
   return (
+
     <SafeAreaView style={tw`bg-white`}>
       <StatusBar barStyle="dark-content" />
       {/* search bar */}
@@ -29,8 +70,8 @@ export default function HomeScreen() {
           <Icon.Search height='25' width='25' stroke='gray' />
           <TextInput placeholder='Restaurants' style={tw`ml-2 flex-1`} keyboardType='default' />
           <View style={tw`flex-row items-center space-x-1 border-0 border-l-2 pl-2 border-l-gray-300`}>
-            <Icon.MapPin height='20' width='20' stroke='gray' />
-            <Text style={tw`text-gray-600`}>New York</Text>
+            <Icon.MapPin height='20' width='20' strok e='gray' />
+            <Text style={tw`text-gray-600`}>{district}</Text>
           </View>
         </View>
 
@@ -52,16 +93,16 @@ export default function HomeScreen() {
 
         <View style={tw`mt-5`}>
           {
-            [featured, featured, featured].map((item, index) => {
-              return (
-                <FeaturedRow
-                  key={index}
-                  title={item.title}
-                  restaurants={item.restaurants}
-                  description={item.description}
-                />
-              )
-            })
+           [featured, featured, featured].map((item, index) => {
+            return (
+              <FeaturedRow
+                key={index}
+                title={item.title}
+                restaurants={item.restaurants}
+                description={item.description}
+              />
+            )
+          })
           }
 
         </View>

@@ -8,8 +8,8 @@ import { useNavigation } from '@react-navigation/native';
 import tw from 'twrnc';
 import { TouchableHighlight } from 'react-native';
 import axios from 'axios';
-
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import FlashMessage,{showMessage} from 'react-native-flash-message';
 
 export default function LoginScreen() {
   const [phone, setPhone] = useState('');
@@ -27,7 +27,7 @@ export default function LoginScreen() {
   const sendOTP = async () => {
     try {
       const response = await axios.post('https://sih-backend.vercel.app/api/getOTP', {
-        number: phone,
+        number: '9987946253',
       });
       console.log(response.data);
     } catch (error) {
@@ -45,21 +45,35 @@ export default function LoginScreen() {
   const verifyOTP = async () => {
     try{
     const data = {
-      number: phone,
+      number: '9987946253',
       otp: otp,
     }
-    console.log(data);
       const response = await axios.post('https://sih-backend.vercel.app/api/verifyOTP', data);
       
-      console.log(JSON.stringify(response.data));
 
       if (response.data.status === 'success') {
         if (response.data.isUser) {
           // User is verified, navigate to Home
           navigation.navigate('Home');
+          console.log(response.data);
+          console.log('User is verified');
+          await AsyncStorage.setItem('userid',response.data.data._id);
+
+          const final= await AsyncStorage.getItem('userid');
+          showMessage({
+            message:"Login Successful",
+            type:"success",
+
+          }
+
+
+
+          )
+         
         } else {
           // User is not verified, navigate to Signup
           navigation.navigate('SignUp');
+
         }
       } else {
         console.log('Error: OTP verification failed');
@@ -90,7 +104,7 @@ export default function LoginScreen() {
           <View style={tw`flex-row items-center`}>
             <TextInput
               style={tw`p-4 bg-gray-100 text-gray-700 rounded-2xl mb-3 flex-1`}
-              placeholder="Enter phone number"
+              placeholder="Enter your phone number"
               keyboardType='numeric'
               value={phone}
               onChangeText={setPhone}
@@ -119,8 +133,8 @@ export default function LoginScreen() {
           </TouchableOpacity>
         </View>
         
-        
       </View>
     </View>
+    
   );
 }
