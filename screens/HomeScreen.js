@@ -16,9 +16,71 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {featured}  from '../constants';
 
 
+import { createStackNavigator } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/drawer'
+import EditProfile from './EditProfile'
+import Dashboard from './Dashboard'
+import Share from './Share'
+import CustomDrawer from '../components/CustomDrawer'
+import MarketPlace from './MarketPlace'
+import RestaurantCard from './restaurantCard'
+// const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
+
+const HomeStack = () => {
+  return (
+    <>
+    <Drawer.Navigator 
+    initialRouteName='MarketPlace'
+    drawerContent={props => <CustomDrawer {...props} />}
+    screenOptions={{
+      headerShown: false,
+      drawerActiveBackgroundColor: '#aa18ea',
+      drawerActiveTintColor: '#fff',
+      drawerInactiveTintColor: '#333',
+      drawerLabelStyle: {
+        marginLeft: 0,
+        fontSize: 15,
+      },
+    }}>
+        <Drawer.Screen name="Home" component={HomeScreen} options={{
+          drawerIcon:({color})=>(
+            <Ionicons name="home-outline" size={22} color={color} />
+          )
+        }}/>
+        <Drawer.Screen name="Edit Profile" component={EditProfile} 
+        options={{
+          drawerIcon:({color})=>(
+            <Ionicons name="pencil-outline" size={24} color={color} />
+          )
+        }}/>
+        <Drawer.Screen name="Dashboard" component={Dashboard} options={{
+          drawerIcon:({color})=>(
+            <Ionicons name="stats-chart-outline" size={24} color={color} />
+          )
+        }}/>
+        <Drawer.Screen name="Share" component={Share}  options={{
+          drawerIcon:({color})=>(
+            <Ionicons name="share-social-outline" size={24} color={color} />
+          )
+        }}/>
+        <Drawer.Screen name="Marketplace" component={MarketPlace}  options={{
+          drawerIcon:({color})=>(
+            <Ionicons name="stats-chart" size={24} color={color} />
+          )
+        }}/>
+      </Drawer.Navigator>
+    
+    </>
+  )
+}
+
+export default HomeStack
 
 
-export default function HomeScreen() {
+
+
+ function HomeScreen() {
 const [project,setprojects]= useState();
 const [recommend,setrecommend]= useState([]);
 const projects= async() => 

@@ -18,25 +18,24 @@ import EditProfile from '../screens/EditProfile';
 
 // drawer navigation options
 import 'react-native-gesture-handler';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+// import { createDrawerNavigator } from '@react-navigation/drawer';
 
 
 
 const Stack = createStackNavigator();
-const Drawer = createDrawerNavigator();
+// const Drawer = createDrawerNavigator();
 
 export default function AppNavigation() {
   return (
-    
+    <NavigationContainer>
       <Stack.Navigator initialRouteName='Home'>
-        <Stack.Screen name="Home" options={{ headerShown: false }} component={HomeScreen} />
         <Stack.Screen name="Welcome" options={{ headerShown: false }} component={WelcomeScreen} />
         <Stack.Screen name="Login" options={{ headerShown: false }} component={LoginScreen} />
         <Stack.Screen name="SignUp" options={{ headerShown: false }} component={SignUpScreen} />
         <Stack.Screen name="Restaurant" options={{ headerShown: false }} component={RestaurantScreen} />
+        <Stack.Screen name="Home" options={{ headerShown: false }} component={HomeScreen} />
       </Stack.Navigator>
-      
-    
+    </NavigationContainer>
   )
 }
 
@@ -46,44 +45,44 @@ export default function AppNavigation() {
 
 
 
-export function DrawerNavigation() {
-  return (
-    <NavigationContainer>
-    <Drawer.Navigator
-    initialRouteName="Home"
-    drawerContent={props => <CustomDrawer {...props} />}
-    screenOptions={{
-      headerShown: false,
-      drawerActiveBackgroundColor: '#aa18ea',
-      drawerActiveTintColor: '#fff',
-      drawerInactiveTintColor: '#333',
-      drawerLabelStyle: {
-        marginLeft: 0,
-        fontSize: 15,
-      },
-    }}>
-        <Drawer.Screen name="Home" component={AppNavigation} options={{
-          drawerIcon:({color})=>(
-            <Ionicons name="home-outline" size={22} color={color} />
-          )
-        }}/>
-        <Drawer.Screen name="Edit Profile" component={EditProfile} 
-        options={{
-          drawerIcon:({color})=>(
-            <Ionicons name="pencil-outline" size={24} color={color} />
-          )
-        }}/>
-        <Drawer.Screen name="Dashboard" component={Dashboard} options={{
-          drawerIcon:({color})=>(
-            <Ionicons name="stats-chart-outline" size={24} color={color} />
-          )
-        }}/>
-        <Drawer.Screen name="Share" component={Share}  options={{
-          drawerIcon:({color})=>(
-            <Ionicons name="share-social-outline" size={24} color={color} />
-          )
-        }}/>
-      </Drawer.Navigator>
-    </NavigationContainer>
-  )
-}
+// export function DrawerNavigation() {
+//   return (
+//     <NavigationContainer>
+//     <Drawer.Navigator
+//     initialRouteName="Home"
+//     drawerContent={props => <CustomDrawer {...props} />}
+//     screenOptions={{
+//       headerShown: false,
+//       drawerActiveBackgroundColor: '#aa18ea',
+//       drawerActiveTintColor: '#fff',
+//       drawerInactiveTintColor: '#333',
+//       drawerLabelStyle: {
+//         marginLeft: 0,
+//         fontSize: 15,
+//       },
+//     }}>
+//         <Drawer.Screen name="Home" component={AppNavigation} options={{
+//           drawerIcon:({color})=>(
+//             <Ionicons name="home-outline" size={22} color={color} />
+//           )
+//         }}/>
+//         <Drawer.Screen name="Edit Profile" component={EditProfile} 
+//         options={{
+//           drawerIcon:({color})=>(
+//             <Ionicons name="pencil-outline" size={24} color={color} />
+//           )
+//         }}/>
+//         <Drawer.Screen name="Dashboard" component={Dashboard} options={{
+//           drawerIcon:({color})=>(
+//             <Ionicons name="stats-chart-outline" size={24} color={color} />
+//           )
+//         }}/>
+//         <Drawer.Screen name="Share" component={Share}  options={{
+//           drawerIcon:({color})=>(
+//             <Ionicons name="share-social-outline" size={24} color={color} />
+//           )
+//         }}/>
+//       </Drawer.Navigator>
+//     </NavigationContainer>
+//   )
+// }
