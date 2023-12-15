@@ -72,8 +72,8 @@ const Dashboard = () => {
         gap="20px"
       >
         {/* ROW 1 */}
-        <Box
-          gridColumn="span 3"
+        <Box                                    //Row 1 box 1
+          gridColumn="span 3"  
           backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
@@ -91,7 +91,7 @@ const Dashboard = () => {
             }
           /> */}
         </Box>
-        <Box
+        <Box                        //Row 1 box 2
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
           display="flex"
@@ -110,7 +110,7 @@ const Dashboard = () => {
             }
           /> */}
         </Box>
-        <Box
+        <Box                //Row 1 box 3
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
           display="flex"
@@ -129,7 +129,7 @@ const Dashboard = () => {
             }
           /> */}
         </Box>
-        <Box
+        <Box                 //Row 1 box 4
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
           display="flex"
@@ -150,12 +150,12 @@ const Dashboard = () => {
         </Box>
 
         {/* ROW 2 */}
-        <Box
+        <Box                    //Row 2 box 1
           gridColumn="span 8"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
         >
-          <Box
+          <Box                  //Row 2 box 1 header
             mt="25px"
             p="0 30px"
             display="flex "
@@ -190,13 +190,13 @@ const Dashboard = () => {
             {/* <BarChart isDashboard={true} /> */}
           </Box>
         </Box>
-        <Box
+        <Box              //Row 2 box 2               //bg color
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           overflow="auto"
         >
-          <Box
+          <Box                            //Row 2 box 2 header
             display="flex"
             justifyContent="space-between"
             alignItems="center"
@@ -209,7 +209,7 @@ const Dashboard = () => {
             </Typography>
           </Box>
           {mockTransactions.map((transaction, i) => (
-            <Box
+            <Box                            //Row 2 box 2 body
               key={`${transaction.txId}-${i}`}
               display="flex"
               justifyContent="space-between"
@@ -242,7 +242,7 @@ const Dashboard = () => {
         </Box>
 
         {/* ROW 3 */}
-        <Box
+        <Box                      //Row 3 box 1
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
@@ -268,7 +268,7 @@ const Dashboard = () => {
             <Typography>Includes extra misc expenditures and costs</Typography>
           </Box>
         </Box>
-        <Box
+        <Box                  //Row 3 box 2
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}

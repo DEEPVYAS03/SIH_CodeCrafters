@@ -17,7 +17,6 @@ import { Icon, divIcon, point } from "leaflet";
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
-
 const Map = () => {
   // event.preventDefault();
   const customIcon = new Icon({

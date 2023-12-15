@@ -10,6 +10,7 @@ import Tablecheck from './components/Tablecheck'
 import  Calendar  from './components/Calendar';
 import SidebarComponent from './globalComponents/Sidebar';
 import Topbar from './globalComponents/Topbar';
+import Tableau from "./pages/Tableau"
 import { ProSidebarProvider } from "react-pro-sidebar";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./customs/theme";
@@ -39,6 +40,7 @@ function App() {
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/table1" element={<Tablecheck />} />
               <Route path="/map" element = {<Map />} />
+              <Route path="/tableau" element = {<Tableau />} />
               </Routes>
               </Router>
           </div>
