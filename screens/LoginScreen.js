@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState , useEffect } from 'react';
+import { createContext, useContext,useState , useEffect } from 'react';
 import { View, Text, TouchableOpacity, Image, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ArrowLeftIcon } from 'react-native-heroicons/solid';
@@ -11,8 +11,10 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import FlashMessage,{showMessage} from 'react-native-flash-message';
 
+import { usePhone } from '../context/allContext';
+
 export default function LoginScreen() {
-  const [phone, setPhone] = useState('');
+  const { phone, setPhone } = usePhone();
   const [otp, setOtp] = useState('');
   const [sendOtpClicked, setSendOtpClicked] = useState(false); // Flag to track whether "Send OTP" button is clicked
   const navigation = useNavigation();
@@ -27,7 +29,7 @@ export default function LoginScreen() {
   const sendOTP = async () => {
     try {
       const response = await axios.post('https://sih-backend.vercel.app/api/getOTP', {
-        number: '9987946253',
+        number: phone,
       });
       console.log(response.data);
     } catch (error) {
@@ -45,7 +47,7 @@ export default function LoginScreen() {
   const verifyOTP = async () => {
     try{
     const data = {
-      number: '9987946253',
+      number:phone ,
       otp: otp,
     }
       const response = await axios.post('https://sih-backend.vercel.app/api/verifyOTP', data);

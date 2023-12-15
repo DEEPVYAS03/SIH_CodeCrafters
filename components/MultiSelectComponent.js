@@ -1,16 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import { StyleSheet, View } from 'react-native';
 import { MultiSelect } from 'react-native-element-dropdown';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import tw from 'twrnc';
 
 const data = [
-  { label: 'Fisheries', value: '1' },
-  { label: 'Nhi pata hai', value: '2' },
+  { label: 'Fisheries', value: 'Fisheries' },
+  { label: 'Agriculture', value: 'Agriculture' },
 ]
 
-const MultiSelectComponent = () => {
+const MultiSelectComponent = ({handlePreferenceChange}) => {
   const [selected, setSelected] = useState([]);
+  const [selectedValues, setSelectedValues] = useState([]);
+
+  // Use useEffect to update selectedValues whenever selected changes
+  useEffect(() => {
+    // Extract the 'value' property from each object in selected
+    const values = selected.map(item => item.value);
+    setSelectedValues(values);
+  }, [selected, setSelected]);
 
   return (
     <View style={tw`px-2 mx-1`}>
@@ -27,7 +35,7 @@ const MultiSelectComponent = () => {
         searchPlaceholder="Search..."
         value={selected}
         onChange={item => {
-          setSelected(item);
+          setSelected(item.value);
         }}
         selectedStyle={styles.selectedStyle}
       />
