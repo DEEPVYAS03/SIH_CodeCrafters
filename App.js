@@ -5,14 +5,16 @@ import { DrawerNavigation } from './navigation/appNavigation'
 import { NavigationContainer } from '@react-navigation/native';
 import MarketPlace from './screens/MarketPlace';
 import IncomePage from './screens/incomepage';
-import { PhoneProvider } from './context/allContext';
+import { IdProvider, PhoneProvider } from './context/allContext';
 
 
 export default function App() {
   return (
       //  <DrawerNavigation />
       <PhoneProvider>
+        <IdProvider>
       <AppNavigation/>
+      </IdProvider>
       </PhoneProvider>
       // <IncomePage/>
       

@@ -1,5 +1,5 @@
 import React from 'react';
-import { createContext, useContext,useState , useEffect } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, Image, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ArrowLeftIcon } from 'react-native-heroicons/solid';
@@ -9,12 +9,14 @@ import tw from 'twrnc';
 import { TouchableHighlight } from 'react-native';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import FlashMessage,{showMessage} from 'react-native-flash-message';
+import FlashMessage, { showMessage } from 'react-native-flash-message';
 
-import { usePhone } from '../context/allContext';
+import { usePhone, useId } from '../context/allContext';
+
 
 export default function LoginScreen() {
   const { phone, setPhone } = usePhone();
+  const { userId, setUserId } = useId();
   const [otp, setOtp] = useState('');
   const [sendOtpClicked, setSendOtpClicked] = useState(false); // Flag to track whether "Send OTP" button is clicked
   const navigation = useNavigation();
@@ -45,13 +47,13 @@ export default function LoginScreen() {
 
 
   const verifyOTP = async () => {
-    try{
-    const data = {
-      number:phone ,
-      otp: otp,
-    }
+    try {
+      const data = {
+        number: phone,
+        otp: otp,
+      }
       const response = await axios.post('https://sih-backend.vercel.app/api/verifyOTP', data);
-      
+
 
       if (response.data.status === 'success') {
         if (response.data.isUser) {
@@ -59,19 +61,22 @@ export default function LoginScreen() {
           navigation.navigate('Home');
           console.log(response.data);
           console.log('User is verified');
-          await AsyncStorage.setItem('userid',response.data.data._id);
+          // await AsyncStorage.setItem('userid',response.data.data._id);
 
-          const final= await AsyncStorage.getItem('userid');
+          // const userid= await AsyncStorage.getItem('userid');
+          setUserId(response.data.data._id);
+          // console.log(userId);
+          // console.log(final);
           showMessage({
-            message:"Login Successful",
-            type:"success",
+            message: "Login Successful",
+            type: "success",
 
           }
 
 
 
           )
-         
+
         } else {
           // User is not verified, navigate to Signup
           navigation.navigate('SignUp');
@@ -83,8 +88,13 @@ export default function LoginScreen() {
     } catch (error) {
       console.log('Error:', error);
     }
+
   };
-  
+
+  useEffect(() => {
+    console.log(userId);
+  }, [userId])
+
   return (
     <View style={tw`flex-1`}>
       <SafeAreaView style={tw`flex `}>
@@ -127,16 +137,16 @@ export default function LoginScreen() {
             onChangeText={setOtp}
             keyboardType='numeric'
           />
-         
-          <TouchableOpacity 
-        onPress={verifyOTP}
-          style={tw`py-3 bg-yellow-400 rounded-xl mt-4 `}>
+
+          <TouchableOpacity
+            onPress={verifyOTP}
+            style={tw`py-3 bg-yellow-400 rounded-xl mt-4 `}>
             <Text style={tw`text-xl font-bold text-center text-gray-700`}>Login</Text>
           </TouchableOpacity>
         </View>
-        
+
       </View>
     </View>
-    
+
   );
 }

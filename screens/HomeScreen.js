@@ -12,10 +12,6 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import axios from 'axios';
 import {useState,useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
-import {featured}  from '../constants';
-
-
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import EditProfile from './EditProfile'
@@ -23,6 +19,7 @@ import Dashboard from './Dashboard'
 import Share from './Share'
 import CustomDrawer from '../components/CustomDrawer'
 import MarketPlace from './MarketPlace'
+import { featured,featured1,featured2,featured3 } from '../constants'
 import RestaurantCard from './restaurantCard'
 // const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -149,13 +146,17 @@ const recommendprojects= async() =>
         }}
       >
         {/* categories */}
-        <Categories />
+        {
+          [featured].map((item,index) => <Categories item={item} key={index} />)
+       
+
+ }
 
         {/* featured */}
 
         <View style={tw`mt-5`}>
           {
-           [featured, featured, featured].map((item, index) => {
+           [featured1, featured2, featured3].map((item, index) => {
             return (
               <FeaturedRow
                 key={index}

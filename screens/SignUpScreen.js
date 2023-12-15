@@ -8,12 +8,13 @@ import SingleDropdown from '../components/SingleDropdown'
 import MultiSelectComponent from '../components/MultiSelectComponent';
 import Signdropdown from '../components/Signdropdown';
 import axios from 'axios'
-import {usePhone} from '../context/allContext'
+import {usePhone,useId} from '../context/allContext'
 
 
 export default function SignUpScreen() {
     const navigation = useNavigation();
     const {phone} = usePhone();
+    const {userId,setUserId} = useId();
     const [presentIncome, setPresentIncome] = useState(null);
     const [fullName, setFullName] = useState('');
     const [state, setState] = useState('');
@@ -67,6 +68,7 @@ export default function SignUpScreen() {
           // Make the API call using Axios
           const response = await axios.post(apiUrl, requestData);
         console.log(response)
+        setUserId(response.data.data._id);
           // Handle the response as needed (e.g., show success message)
           Alert.alert('Success', 'Sign up successful!');
     
@@ -78,6 +80,10 @@ export default function SignUpScreen() {
           console.error('API error:', error);
         }
       };
+
+      useEffect(() => {
+        console.log(userId);
+      },[userId])
 
 
     return (
@@ -117,7 +123,7 @@ export default function SignUpScreen() {
                             onSelectDistrict={handleSelectDistrict}
                             onSelectVillage={handleSelectVillage} />
                         <Text style={tw`text-gray-700 ml-2 mt-1`}>Occupation:</Text>
-                        
+
                         <MultiSelectComponent onSelectedValuesChange={handlePreferenceChange} />
 
                         <Text style={tw`text-gray-700 mt-3 ml-2`}>Present Income:</Text>

@@ -9,16 +9,15 @@ const data = [
   { label: 'Agriculture', value: 'Agriculture' },
 ]
 
-const MultiSelectComponent = ({handlePreferenceChange}) => {
+const MultiSelectComponent = ({onSelectedValuesChange}) => {
   const [selected, setSelected] = useState([]);
-  const [selectedValues, setSelectedValues] = useState([]);
+
 
   // Use useEffect to update selectedValues whenever selected changes
   useEffect(() => {
-    // Extract the 'value' property from each object in selected
-    const values = selected.map(item => item.value);
-    setSelectedValues(values);
-  }, [selected, setSelected]);
+    onSelectedValuesChange(selected);
+  }, [selected]);
+
 
   return (
     <View style={tw`px-2 mx-1`}>
@@ -35,7 +34,7 @@ const MultiSelectComponent = ({handlePreferenceChange}) => {
         searchPlaceholder="Search..."
         value={selected}
         onChange={item => {
-          setSelected(item.value);
+          setSelected(item);
         }}
         selectedStyle={styles.selectedStyle}
       />

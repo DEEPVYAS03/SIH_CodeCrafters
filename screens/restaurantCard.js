@@ -8,7 +8,7 @@ import {useNavigation} from '@react-navigation/native'
 const RestaurantCard = ({ item }) => {
     const navigation = useNavigation();
     return (
-        <TouchableWithoutFeedback onPress={()=>navigation.navigate('Restaurant',{...item})}>
+        <TouchableWithoutFeedback >
             <View style={tw`mr-6 bg-white rounded-3xl shadow-lg`}>
                 <Image style={tw`h-36 w-64 rounded-t-3xl`} source={item.image} />
                 <View style={tw`px-3 pb-4 space-y-2`}>
