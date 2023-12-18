@@ -58,13 +58,13 @@ export default function LoginScreen() {
         if (response.data.isUser) {
           // User is verified, navigate to Home
           navigation.navigate('Home');
-          // console.log(response.data);
+          console.log(response.data);
           console.log('User is verified');
           // await AsyncStorage.setItem('userid',response.data.data._id);
 
           // const userid= await AsyncStorage.getItem('userid');
           setUserId(response.data.data._id);
-          // console.log(userId);
+          console.log(userId);
           // console.log(final);
           showMessage({
             message: "Login Successful",
