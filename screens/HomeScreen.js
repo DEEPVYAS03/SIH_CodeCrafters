@@ -11,8 +11,6 @@ import { useNavigation } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import axios from 'axios';
 import {useState,useEffect} from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import EditProfile from './EditProfile'
 import Dashboard from './Dashboard'
@@ -20,13 +18,17 @@ import Share from './Share'
 import CustomDrawer from '../components/CustomDrawer'
 import MarketPlace from './MarketPlace'
 import { featured,featured1,featured2,featured3 } from '../constants'
-import RestaurantCard from './restaurantCard'
-// const Stack = createStackNavigator();
+import { useLocation } from '../context/allContext'
+import IncomePage from './incomepage'
+// import { IdProvider } from './../context/allContext';
+// import { PhoneProvider } from './../context/allContext';
+
 const Drawer = createDrawerNavigator();
 
 const HomeStack = () => {
   return (
     <>
+  
     <Drawer.Navigator 
     initialRouteName='MarketPlace'
     drawerContent={props => <CustomDrawer {...props} />}
@@ -66,8 +68,14 @@ const HomeStack = () => {
             <Ionicons name="stats-chart" size={24} color={color} />
           )
         }}/>
+        <Drawer.Screen name="Income" component={IncomePage}  options={{
+          drawerIcon:({color})=>(
+            <Ionicons name="stats-chart" size={24} color={color} />
+          )
+        }}/>
       </Drawer.Navigator>
     
+  
     </>
   )
 }
@@ -77,7 +85,7 @@ export default HomeStack
 
 
 
- function HomeScreen() {
+function HomeScreen() {
 const [project,setprojects]= useState();
 const [recommend,setrecommend]= useState([]);
 const projects= async() => 
@@ -112,7 +120,7 @@ const recommendprojects= async() =>
 
   const navigation = useNavigation();
   // const isFocused = useIsFocused();
-  const district = 'Kolkata';   
+    const {district} = useLocation();
   return (
 
     <SafeAreaView style={tw`bg-white`}>
@@ -148,7 +156,6 @@ const recommendprojects= async() =>
         {/* categories */}
         {
           [featured].map((item,index) => <Categories item={item} key={index} />)
-       
 
  }
 
@@ -156,7 +163,7 @@ const recommendprojects= async() =>
 
         <View style={tw`mt-5`}>
           {
-           [featured1, featured2, featured3].map((item, index) => {
+           [featured1].map((item, index) => {
             return (
               <FeaturedRow
                 key={index}

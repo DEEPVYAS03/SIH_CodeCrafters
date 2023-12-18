@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import tw from "twrnc";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { useLocation } from "../context/allContext";
 
 import { MyBezierLineChart, MyBarGraph } from "../components/charts";
 import { useNavigation } from "@react-navigation/native";
@@ -23,7 +24,7 @@ import {ProgressRing} from '../components/charts'
 
 const Dashboard = () => {
   const navigation = useNavigation();
-
+  const {fname} = useLocation();
   const [iconClicked, setIconClicked] = useState(false);
 
   const handleIconClick = () => {
@@ -55,7 +56,7 @@ const Dashboard = () => {
             />
           </TouchableOpacity>
           <View style={tw`ml-3 mt-2`}>
-            <Text style={tw`font-bold`}>Hi Jane</Text>
+            <Text style={tw`font-bold`}>Hi {fname}</Text>
             <Text>Aug 12,2021</Text>
           </View>
         </View>

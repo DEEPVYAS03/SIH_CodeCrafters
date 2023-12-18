@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, ImageBackground, TextInput, StyleSheet, Image, ScrollView, SafeAreaView, FlatList } from 'react-native';
+import { View, Text, TouchableOpacity, ImageBackground, TextInput, StyleSheet, Image, ScrollView, SafeAreaView, FlatList, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
@@ -8,14 +8,18 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import NotificationModal from '../components/NotificationModal';
 import Message from '../components/Message';
 import { useNavigation } from '@react-navigation/native';
-import DropDownPicker from 'react-native-dropdown-picker';
+import {useLocation,usePhone} from '../context/allContext';
 import DropdownComponent from '../components/Editdropdown';
-import Indropdown from '../components/Indropdown';
-import {useTheme} from 'react-native-paper';
+import Signdropdown from '../components/Signdropdown';
+
 
 const EditProfile = () => {
 
     // const {colors} = useTheme();
+
+    const {state,setState,district,setDistrict,village, setVillage} = useLocation();
+
+    const {fname,setFname ,lname, setLname , phone,setPhone, email,setEmail} = usePhone();
     const navigation = useNavigation();
     const [iconClicked, setIconClicked] = useState(false);
 
@@ -26,6 +30,24 @@ const EditProfile = () => {
     const handleModalClose = () => {
         setIconClicked(false);
     };
+
+    const handleSubmit = () => {
+            Alert.alert('Profile editted successfully')
+            navigation.navigate('Home')
+    }
+
+    const handleSelectState = (state) => {
+        setState(state);
+    };
+
+    const handleSelectDistrict = (district) => {
+        setDistrict(district);
+    };
+
+    const handleSelectVillage = (village) => {
+        setVillage(village);
+    };
+
 
     return (
         <View style={tw`bg-white h-full `}>
@@ -57,7 +79,7 @@ const EditProfile = () => {
                 </View>
                 <NotificationModal
                     isVisible={iconClicked}
-                    message=<Message />
+                    message= {<Message />}
                     onClose={handleModalClose}
                 />
             </View>
@@ -97,25 +119,29 @@ const EditProfile = () => {
                         <View>
                             <Text style={tw`-ml-10 text-xl font-bold mt-10`}>Personal Information :</Text>
                         </View>
-                        <View style={tw`flex flex-row border-b-[0.5px] mt-6 border-slate-400 pb-2`}>
+                        <View style={tw`flex flex-row border-b-[0.5px] mt-6 border-slate-400 pb-2 w-74`}>
                             <FontAwesome name='user' size={20} />
                             <TextInput
+                                value={fname}
                                 placeholder='First Name'
                                 placeholderTextColor='#666666'
                                 autoCorrect={false}
                                 style={tw`flex-1 ml-5 -mt-1 `}
+                                onChange={(item)=>setFname(item.value)}
                             />
                         </View>
-                        <View style={tw`flex flex-row border-b-[0.5px] mt-6 border-slate-400 pb-2`}>
+                        <View style={tw`flex flex-row border-b-[0.5px] mt-6 border-slate-400 pb-2 w-74`}>
                             <FontAwesome name='user' size={20} />
                             <TextInput
                                 placeholder='Last Name'
                                 placeholderTextColor='#666666'
                                 autoCorrect={false}
                                 style={tw`flex-1 ml-5 -mt-1 `}
+                                value={lname}
+                                onChange={(item)=>setLname(item.value)}
                             />
                         </View>
-                        <View style={tw`flex flex-row border-b-[0.5px] mt-6 border-slate-400 pb-2`}>
+                        <View style={tw`flex flex-row border-b-[0.5px] mt-6 border-slate-400 pb-2 w-74`}>
                             <FontAwesome name='phone' size={20} />
                             <TextInput
                                 placeholder='Phone Number'
@@ -123,21 +149,31 @@ const EditProfile = () => {
                                 keyboardType='numeric'
                                 autoCorrect={false}
                                 style={tw`flex-1 ml-5 -mt-1 `}
+                                value={phone}
+                                onChange={(item)=>setPhone(item.value)}
                             />
                         </View>
-                        <View style={tw`flex flex-row border-b-[0.5px] mt-6 border-slate-400 pb-2`}>
+                        <View style={tw`flex flex-row border-b-[0.5px] mt-6 border-slate-400 pb-2  w-74`}>
                             <FontAwesome name='envelope' size={20} />
                             <TextInput
                                 placeholder='Email'
                                 placeholderTextColor='#666666'
                                 autoCorrect={false}
                                 style={tw`flex-1 ml-5 -mt-1`}
+                                value={email}
+                                onChange={(item)=>setEmail(item.value)}
                             />
                         </View>
 
-                        <DropdownComponent />
+                        {/* <DropdownComponent />
+                         */}
+                        <View style={tw`-ml-4 mt-1`}>
+                         <Signdropdown onSelectState={handleSelectState}
+                            onSelectDistrict={handleSelectDistrict}
+                            onSelectVillage={handleSelectVillage} />
+                         </View>
 
-                        <View>
+                        {/* <View>
                             <Text style={tw`-ml-10 text-xl font-bold mt-6`}>Professional Information :</Text>
                         </View>
                         <Indropdown />
@@ -150,16 +186,18 @@ const EditProfile = () => {
                                 autoCorrect={false}
                                 style={tw`flex-1 ml-5 -mt-1 `}
                             />
-                        </View>
+                        </View> */}
+                        
                         <TouchableOpacity
                             style={{
                                 backgroundColor: '#0F3460',
                                 padding: 20,
                                 borderRadius: 15,
                                 alignItems: 'center',
-                                marginBottom: 20
+                                marginBottom: 20,
+                                marginTop:10
                             }}
-                            onPress={() => { }}>
+                            onPress={() =>{handleSubmit()}}>
                             <Text
                                 style={{
                                     color: '#fff',

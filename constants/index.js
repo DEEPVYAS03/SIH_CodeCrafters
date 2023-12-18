@@ -1,40 +1,3 @@
-import { useEffect } from 'react';
-import axios from 'axios'
-import Categories from './../components/categories';
-
-
-let response;
-let categories=[];
-
-const projects = async () => {
-   try {
-     // Make a GET request
-      response = await axios.get('https://sih-backend.vercel.app/api/user/stateWiseProjects');
-      categories = response.data.states
-      return categories;
-
-   //   console.log('GET Response:', response.data);
-   } catch (error) {
-     console.error('GET Error:', error);
-   }
-
-   
- };
-
-export {categories}
- 
-
-
-
-
-
-
-    
-
-
-
-
-
 
 // export const categories = [
 //     {
@@ -76,7 +39,7 @@ export const featured = {
         {
             id: 1,
             image: require('../assets/images/pizza.png'),
-            description: 'Hot and spicy pizzas',
+            description: 'Tamil Nadu, located in southern India, is a culturally rich state renowned for its historical heritage, including ancient temples and vibrant traditions.',
             lng: -85.5324269,
             lat: 38.2145602,
             dishes: [

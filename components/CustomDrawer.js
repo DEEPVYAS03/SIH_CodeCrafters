@@ -6,11 +6,12 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome'
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { useId } from '../context/allContext';
+import { useId, usePhone } from '../context/allContext';
 
 
 const CustomDrawer = (props) => {
     const { userId, setUserId } = useId();
+    const {fname,lname} =usePhone();
     const navigation = useNavigation();
     return (
         <View style={{ flex: 1 }}>
@@ -23,7 +24,7 @@ const CustomDrawer = (props) => {
                             fontSize: 18,
                             marginBottom: 5,
                         }}>
-                        John Doe
+                        {fname}
                     </Text>
 
                 </ImageBackground>

@@ -5,21 +5,23 @@ import { DrawerNavigation } from './navigation/appNavigation'
 import { NavigationContainer } from '@react-navigation/native';
 import MarketPlace from './screens/MarketPlace';
 import IncomePage from './screens/incomepage';
-import { IdProvider, PhoneProvider } from './context/allContext';
+import { IdProvider, LocationProvider, PhoneProvider } from './context/allContext';
 
 
 export default function App() {
   return (
-      //  <DrawerNavigation />
-      <PhoneProvider>
-        <IdProvider>
-      <AppNavigation/>
+    //  <DrawerNavigation />
+    <PhoneProvider>
+      <IdProvider>
+        <LocationProvider>
+          <AppNavigation />
+        </LocationProvider>
       </IdProvider>
-      </PhoneProvider>
-      // <IncomePage/>
-      
+    </PhoneProvider>
+    // <IncomePage/>
 
-      // <MarketPlace/>
-      
+
+    // <MarketPlace/>
+
   );
 }

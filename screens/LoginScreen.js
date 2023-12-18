@@ -33,7 +33,6 @@ export default function LoginScreen() {
       const response = await axios.post('https://sih-backend.vercel.app/api/getOTP', {
         number: phone,
       });
-      console.log(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -59,7 +58,7 @@ export default function LoginScreen() {
         if (response.data.isUser) {
           // User is verified, navigate to Home
           navigation.navigate('Home');
-          console.log(response.data);
+          // console.log(response.data);
           console.log('User is verified');
           // await AsyncStorage.setItem('userid',response.data.data._id);
 
@@ -92,7 +91,7 @@ export default function LoginScreen() {
   };
 
   useEffect(() => {
-    console.log(userId);
+    console.log('UserId:',userId);
   }, [userId])
 
   return (

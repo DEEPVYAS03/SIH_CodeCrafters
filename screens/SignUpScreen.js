@@ -8,18 +8,22 @@ import SingleDropdown from '../components/SingleDropdown'
 import MultiSelectComponent from '../components/MultiSelectComponent';
 import Signdropdown from '../components/Signdropdown';
 import axios from 'axios'
-import {usePhone,useId} from '../context/allContext'
+import {usePhone,useId ,useLocation} from '../context/allContext'
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 
 export default function SignUpScreen() {
     const navigation = useNavigation();
-    const {phone} = usePhone();
+    const {phone,fname,setFname,lname,setLname} = usePhone();
     const {userId,setUserId} = useId();
     const [presentIncome, setPresentIncome] = useState(null);
     const [fullName, setFullName] = useState('');
-    const [state, setState] = useState('');
-    const [district, setDistrict] = useState('');
-    const [village, setVillage] = useState('');
+
+    // const [state, setState] = useState('');
+    // const [district, setDistrict] = useState('');
+    // const [village, setVillage] = useState('');
+
+    const {state, setState,district, setDistrict,village, setVillage} = useLocation();
     const [preference, setPreference] = useState([]);
 
 
@@ -55,7 +59,7 @@ export default function SignUpScreen() {
     
           // Prepare the data to be sent in the POST request
           const requestData = {
-            name: fullName,
+            name: fname + " " + lname,
             number:phone, 
             state: 'Tamil Nadu',
             district:convertToSentenceCase( district),
@@ -63,11 +67,11 @@ export default function SignUpScreen() {
             preference: preference,
             presentIncome: parseInt(presentIncome),
           };
-          console.log("hi")
-          console.log(requestData)
+        //   console.log("hi")
+        //   console.log(requestData)
           // Make the API call using Axios
           const response = await axios.post(apiUrl, requestData);
-        console.log(response)
+        // console.log(response)
         setUserId(response.data.data._id);
           // Handle the response as needed (e.g., show success message)
           Alert.alert('Success', 'Sign up successful!');
@@ -110,13 +114,28 @@ export default function SignUpScreen() {
 
                     <View style={tw`form space-y-2`}>
                         <Text style={tw`text-gray-700 ml-3`}>Full Name: </Text>
-                        <TextInput
-                            style={tw`p-3 
-                            border-b-[0.5px] text-gray-700 rounded-2xl mb-3`}
-                            placeholder="Enter Full Name"
-                            value={fullName}
-                            onChangeText={setFullName}
-                        />
+                        <View style={tw`flex flex-row border-b-[0.5px] mt-6 border-slate-400 ml-3 pb-2 w-77`}>
+                            <FontAwesome name='user' size={20} />
+                            <TextInput
+                                value={fname}
+                                placeholder='First Name'
+                                placeholderTextColor='#666666'
+                                autoCorrect={false}
+                                style={tw`flex-1 ml-5 -mt-1 `}
+                                onChangeText={(item)=>setFname(item)}
+                            />
+                        </View>
+                        <View style={tw`flex flex-row border-b-[0.5px] mt-6 ml-3 border-slate-400 mb-2 pb-2 w-77`}>
+                            <FontAwesome name='user' size={20} />
+                            <TextInput
+                                placeholder='Last Name'
+                                placeholderTextColor='#666666'
+                                autoCorrect={false}
+                                style={tw`flex-1 ml-5 -mt-1 `}
+                                value={lname}
+                                onChangeText={(item)=>setLname(item)}
+                            />
+                        </View>
 
                         <Text style={tw`text-gray-700 ml-2`}>Location:</Text>
                         <Signdropdown onSelectState={handleSelectState}
