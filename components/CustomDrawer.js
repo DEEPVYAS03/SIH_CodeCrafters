@@ -12,7 +12,6 @@ import { useId, usePhone } from '../context/allContext';
 const CustomDrawer = (props) => {
     const { userId, setUserId } = useId();
     const {fname,lname} =usePhone();
-    console.log(fname)
     const navigation = useNavigation();
     return (
         <View style={{ flex: 1 }}>
@@ -25,7 +24,7 @@ const CustomDrawer = (props) => {
                             fontSize: 18,
                             marginBottom: 5,
                         }}>
-                        {fname}
+                        {`${fname} ${lname}`}
                     </Text>
 
                 </ImageBackground>

@@ -68,7 +68,7 @@ const EditProfile = () => {
             />
           </TouchableOpacity> */}
                     <View style={tw`ml-3 mt-2`}>
-                        <Text style={tw`font-bold`}>Hi Jane</Text>
+                        <Text style={tw`font-bold`}>Hi {fname}</Text>
                         <Text>Aug 12,2021</Text>
                     </View>
                 </View>
@@ -114,7 +114,7 @@ const EditProfile = () => {
                                     </ImageBackground>
                                 </View>
                             </TouchableOpacity>
-                            <Text style={{ marginTop: 10, fontSize: 18, fontWeight: 'bold' }}>John Doe</Text>
+                            <Text style={{ marginTop: 10, fontSize: 18, fontWeight: 'bold' }}>{fname}{lname}</Text>
                         </View>
                         <View>
                             <Text style={tw`-ml-10 text-xl font-bold mt-10`}>Personal Information :</Text>

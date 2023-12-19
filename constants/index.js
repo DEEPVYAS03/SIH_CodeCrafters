@@ -251,19 +251,18 @@ export const featured = {
 export const featured1 = {
     id: 1,
     title: 'Projects Recommended for You',
-    description: 'soft and tender fried chicken',
+    description: 'Favourable projects near your area',
     restaurants: [
         {
             id: 1,
-            name: 'Papa Johns',
-            image: require('../assets/images/pizza.png'),
+            name: 'WDC1',
+            image: require('../assets/WDC-image.jpg'),
             description: 'Hot and spicy pizzas',
             lng: -85.5324269,
             lat: 38.2145602,
-            address: '434 second street',
-            stars: 4,
-            reviews: '4.4k',
-            category: 'Fast Food',
+            address: 'Dharmapuri',
+      
+
             dishes: [
                 {
                    id: 1,
@@ -290,185 +289,110 @@ export const featured1 = {
     
         },
         {
-            id: 2,
-            name: 'Papa Johns',
-            image: require('../assets/images/pizza.png'),
-            description: 'Hot and spicy pizzas',
-            lng: -85.5324269,
-            lat: 38.2145602,
-            address: '434 second street',
-            stars: 4,
-            reviews: '4.4k',
-            category: 'Fast Food',
-            dishes: [
-                {
-                   id: 1,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-                {
-                   id: 2,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-                {
-                   id: 3,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-            ]
-    
-        },
-        {
-            id: 3,
-            name: 'Papa Johns',
-            image: require('../assets/images/pizza.png'),
-            description: 'Hot and spicy pizzas',
-            lng: -85.5324269,
-            lat: 38.2145602,
-            address: '434 second street',
-            stars: 4,
-            reviews: '4.4k',
-            category: 'Fast Food',
-            dishes: [
-                {
-                   id: 1,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-                {
-                   id: 2,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-                {
-                   id: 3,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-            ]
-    
-        },
-        {
-            id: 4,
-            name: 'Papa Johns',
-            image: require('../assets/images/pizza.png'),
-            description: 'Hot and spicy pizzas',
-            lng: -85.5324269,
-            lat: 38.2145602,
-            address: '434 second street',
-            stars: 4,
-            reviews: '4.4k',
-            category: 'Fast Food',
-            dishes: [
-                {
-                   id: 1,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-                {
-                   id: 2,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-                {
-                   id: 3,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-            ]
-    
-        },
-        {
-            id: 5,
-            name: 'Papa Johns',
-            image: require('../assets/images/pizza.png'),
-            description: 'Hot and spicy pizzas',
-            lng: -85.5324269,
-            lat: 38.2145602,
-            address: '434 second street',
-            stars: 4,
-            reviews: '4.4k',
-            category: 'Fast Food',
-            dishes: [
-                {
-                   id: 1,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-                {
-                   id: 2,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-                {
-                   id: 3,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-            ]
-    
-        },
-        {
-            id: 6,
-            name: 'Papa Johns',
-            image: require('../assets/images/pizza.png'),
-            description: 'Hot and spicy pizzas',
-            lng: -85.5324269,
-            lat: 38.2145602,
-            address: '434 second street',
-            stars: 4,
-            reviews: '4.4k',
-            category: 'Fast Food',
-            dishes: [
-                {
-                   id: 1,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-                {
-                   id: 2,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-                {
-                   id: 3,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-            ]
-    
-        }
+         id: 1,
+         name: 'WDC1',
+         image: require('../assets/WDC-image.jpg'),
+         description: 'Hot and spicy pizzas',
+         lng: -85.5324269,
+         lat: 38.2145602,
+         address: 'Dharmapuri',
+   
+
+         dishes: [
+             {
+                id: 1,
+                name: 'pizza',
+                description: 'cheezy garlic pizza',
+                price: 10,
+                image:  require('../assets/images/pizzaDish.png')
+             },
+             {
+                id: 2,
+                name: 'pizza',
+                description: 'cheezy garlic pizza',
+                price: 10,
+                image:  require('../assets/images/pizzaDish.png')
+             },
+             {
+                id: 3,
+                name: 'pizza',
+                description: 'cheezy garlic pizza',
+                price: 10,
+                image:  require('../assets/images/pizzaDish.png')
+             },
+         ]
+ 
+     },
+     {
+      id: 1,
+      name: 'WDC1',
+      image: require('../assets/WDC-image.jpg'),
+      description: 'Hot and spicy pizzas',
+      lng: -85.5324269,
+      lat: 38.2145602,
+      address: 'Dharmapuri',
+
+
+      dishes: [
+          {
+             id: 1,
+             name: 'pizza',
+             description: 'cheezy garlic pizza',
+             price: 10,
+             image:  require('../assets/images/pizzaDish.png')
+          },
+          {
+             id: 2,
+             name: 'pizza',
+             description: 'cheezy garlic pizza',
+             price: 10,
+             image:  require('../assets/images/pizzaDish.png')
+          },
+          {
+             id: 3,
+             name: 'pizza',
+             description: 'cheezy garlic pizza',
+             price: 10,
+             image:  require('../assets/images/pizzaDish.png')
+          },
+      ]
+
+  },
+  {
+   id: 1,
+   name: 'WDC1',
+   image: require('../assets/WDC-image.jpg'),
+   description: 'Hot and spicy pizzas',
+   lng: -85.5324269,
+   lat: 38.2145602,
+   address: 'Dharmapuri',
+
+
+   dishes: [
+       {
+          id: 1,
+          name: 'pizza',
+          description: 'cheezy garlic pizza',
+          price: 10,
+          image:  require('../assets/images/pizzaDish.png')
+       },
+       {
+          id: 2,
+          name: 'pizza',
+          description: 'cheezy garlic pizza',
+          price: 10,
+          image:  require('../assets/images/pizzaDish.png')
+       },
+       {
+          id: 3,
+          name: 'pizza',
+          description: 'cheezy garlic pizza',
+          price: 10,
+          image:  require('../assets/images/pizzaDish.png')
+       },
+   ]
+
+}
     ]
 }
 export const featured2 = {
@@ -694,229 +618,7 @@ export const featured2 = {
         }
     ]
 }
-export const featured3 = {
-    id: 1,
-    title: 'Baadme',
-    description: 'soft and tender fried chicken',
-    restaurants: [
-        {
-            id: 1,
-            name: 'Papa Johns',
-            image: require('../assets/images/pizza.png'),
-            description: 'Hot and spicy pizzas',
-            lng: -85.5324269,
-            lat: 38.2145602,
-            address: '434 second street',
-            stars: 4,
-            reviews: '4.4k',
-            category: 'Fast Food',
-            dishes: [
-                {
-                   id: 1,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-                {
-                   id: 2,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-                {
-                   id: 3,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-            ]
-    
-        },
-        {
-            id: 2,
-            name: 'Papa Johns',
-            image: require('../assets/images/pizza.png'),
-            description: 'Hot and spicy pizzas',
-            lng: -85.5324269,
-            lat: 38.2145602,
-            address: '434 second street',
-            stars: 4,
-            reviews: '4.4k',
-            category: 'Fast Food',
-            dishes: [
-                {
-                   id: 1,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-                {
-                   id: 2,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-                {
-                   id: 3,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-            ]
-    
-        },
-        {
-            id: 3,
-            name: 'Papa Johns',
-            image: require('../assets/images/pizza.png'),
-            description: 'Hot and spicy pizzas',
-            lng: -85.5324269,
-            lat: 38.2145602,
-            address: '434 second street',
-            stars: 4,
-            reviews: '4.4k',
-            category: 'Fast Food',
-            dishes: [
-                {
-                   id: 1,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-                {
-                   id: 2,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-                {
-                   id: 3,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-            ]
-    
-        },
-        {
-            id: 4,
-            name: 'Papa Johns',
-            image: require('../assets/images/pizza.png'),
-            description: 'Hot and spicy pizzas',
-            lng: -85.5324269,
-            lat: 38.2145602,
-            address: '434 second street',
-            stars: 4,
-            reviews: '4.4k',
-            category: 'Fast Food',
-            dishes: [
-                {
-                   id: 1,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-                {
-                   id: 2,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-                {
-                   id: 3,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-            ]
-    
-        },
-        {
-            id: 5,
-            name: 'Papa Johns',
-            image: require('../assets/images/pizza.png'),
-            description: 'Hot and spicy pizzas',
-            lng: -85.5324269,
-            lat: 38.2145602,
-            address: '434 second street',
-            stars: 4,
-            reviews: '4.4k',
-            category: 'Fast Food',
-            dishes: [
-                {
-                   id: 1,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-                {
-                   id: 2,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-                {
-                   id: 3,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-            ]
-    
-        },
-        {
-            id: 6,
-            name: 'Papa Johns',
-            image: require('../assets/images/pizza.png'),
-            description: 'Hot and spicy pizzas',
-            lng: -85.5324269,
-            lat: 38.2145602,
-            address: '434 second street',
-            stars: 4,
-            reviews: '4.4k',
-            category: 'Fast Food',
-            dishes: [
-                {
-                   id: 1,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-                {
-                   id: 2,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-                {
-                   id: 3,
-                   name: 'pizza',
-                   description: 'cheezy garlic pizza',
-                   price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
-                },
-            ]
-    
-        }
-    ]
-}
+
 
 export const COLORS = {
     primary: "#312651",

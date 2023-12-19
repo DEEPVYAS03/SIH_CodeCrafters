@@ -16,6 +16,7 @@ import {
     BottomSheetModal,
 } from "@gorhom/bottom-sheet";
 import {Image} from 'react-native'
+import { usePhone } from '../context/allContext';
 
 
 
@@ -33,6 +34,7 @@ const filters = [
 const MarketPlace = () => {
 
     const bottomSheetModalRef = useRef(null);
+    const {fname} = usePhone()
     const navigation = useNavigation();
     const [iconClicked, setIconClicked] = useState(false);
     const [selectedFilter, setSelectedFilter] = useState(filters[0].name);
@@ -174,7 +176,7 @@ const MarketPlace = () => {
             />
           </TouchableOpacity> */}
                     <View style={tw`ml-3 mt-2`}>
-                        <Text style={tw`font-bold`}>Hi Jane</Text>
+                        <Text style={tw`font-bold`}>Hi {fname}</Text>
                         <Text>Aug 12,2021</Text>
                     </View>
                 </View>

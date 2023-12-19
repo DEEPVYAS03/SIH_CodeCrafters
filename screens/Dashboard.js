@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import tw from "twrnc";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { useLocation } from "../context/allContext";
+import { usePhone } from "../context/allContext";
 
 import { MyBezierLineChart, MyBarGraph } from "../components/charts";
 import { useNavigation } from "@react-navigation/native";
@@ -24,7 +24,7 @@ import {ProgressRing} from '../components/charts'
 
 const Dashboard = () => {
   const navigation = useNavigation();
-  const {fname} = useLocation();
+  const {fname} = usePhone();
   const [iconClicked, setIconClicked] = useState(false);
 
   const handleIconClick = () => {

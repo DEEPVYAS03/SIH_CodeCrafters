@@ -33,6 +33,7 @@ export default function LoginScreen() {
       const response = await axios.post('https://sih-backend.vercel.app/api/getOTP', {
         number: phone,
       });
+      console.log(response.data)
     } catch (error) {
       console.log(error);
     }
@@ -91,7 +92,7 @@ export default function LoginScreen() {
   };
 
   useEffect(() => {
-    console.log('UserId:',userId);
+    console.log('UserId:', userId);
   }, [userId])
 
   return (

@@ -6,22 +6,23 @@ import * as Icon from 'react-native-feather';
 import DishRow from '../components/dishRow';
 
 
+
 export default function RestaurantScreen() {
     const { params } = useRoute();
     const navigation = useNavigation();
     let item = params;
 
-    console.log('item:',item)
+    console.log('item:',item.image)
 
     return (
         <View>
             <ScrollView>
                 <View style={tw`relative`}>
-                    <Image style={[tw` w-full h-72 object-fill`,{ resizeMode: 'cover' }]} source={{uri:item.image}} />
+                    <Image style={tw` w-full h-72 `} source={require('../assets/images/states/tamilnadu.jpg')} />
                     <TouchableOpacity
                         onPress={() => navigation.goBack()}
                         style={tw`absolute top-14 left-4 bg-gray-50 p-2 rounded-full shadow`}>
-                        <Icon.ArrowLeft strokeWidth={3} stroke='orange' />
+                        <Icon.ArrowLeft strokeWidth={3} stroke='green' />
                     </TouchableOpacity>
                 </View>
                 <View
@@ -44,8 +45,7 @@ export default function RestaurantScreen() {
                             </View>
                         </View> */}
 
-                        <Text style={tw`text-gray-500 mt-2`}>{item.description}</Text>
-
+                        <Text style={tw`text-gray-500 mt-2`}>{item.description} </Text>
                     </View>
                 </View>
                 <View style={tw`pb-36 bg-white`} >
@@ -53,7 +53,7 @@ export default function RestaurantScreen() {
                     {/*dishes */}
 
                     {
-                        item.dishes.map((dish, index) => <DishRow item={{ ...dish }} key={index} />)
+                        item.projects.map((project, index) => <DishRow item={{ ...project }} key={index} />)
                     }
 
                 </View>
