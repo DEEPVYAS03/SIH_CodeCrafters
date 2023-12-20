@@ -69,7 +69,7 @@ const EditProfile = () => {
           </TouchableOpacity> */}
                     <View style={tw`ml-3 mt-2`}>
                         <Text style={tw`font-bold`}>Hi {fname}</Text>
-                        <Text>Aug 12,2021</Text>
+                        <Text>Dec 20,2023</Text>
                     </View>
                 </View>
                 <View style={tw`mt-2 mr-3`}>

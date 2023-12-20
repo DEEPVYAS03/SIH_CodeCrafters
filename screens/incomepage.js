@@ -1,4 +1,4 @@
-import { View, Text ,TextInput,ScrollView,StyleSheet} from "react-native";
+import { View, Text ,TextInput,ScrollView,StyleSheet, TouchableOpacity} from "react-native";
 import React, { useState } from "react";
 import CheckBox from "react-native-check-box";
 import MultiSelectComponent from "../components/MultiSelectComponent";
@@ -6,217 +6,28 @@ import Signdropdown from "../components/Signdropdown";
 import Editdropdown from "../components/Editdropdown";
 import Indropdown from "../components/Indropdown";
 import SingleDropdown from "../components/SingleDropdown";
-
-// export default function App() {
-  
-//   const [isChecked, setIsChecked] = useState({
-//     fisheries: false,
-//     agriculture: false,
-//     livestock: false,
-//     poultry: false,
-//     beekeeping: false,
-//     other: false,
-//   });
-//   return (
-//     <View style={{ padding: 30 }}>
-      
-  
-//       <SingleDropdown/>
-//       <Text
-//         style={{
-//           fontSize: 22,
-//           fontWeight: "bold",
-//           color: "black",
-//           marginBottom: 20,
-//         }}
-//       >
-//         Select your activity
-//       </Text>
-//       <>
-//       <CheckBox
-//         style={{ marginBottom: 16 }}
-//         isChecked={isChecked.fisheries}
-//         onClick={() =>
-//           setIsChecked({ ...isChecked, fisheries: !isChecked.fisheries })
-//         }
-//         rightText="Fisheries"
-//         rightTextStyles={{
-//           fontSize: 19,
-//           color: isChecked ? "green" : "black",
-//           fontWeight: "bold",
-//         }}
-//         //checkBoxColor="black"
-//         checkedCheckBoxColor="green"
-//         uncheckedCheckBoxColor="black"
-//       />
-//       <CheckBox
-//        style={{ marginBottom: 16 }}
-//         isChecked={isChecked.agriculture}
-//         onClick={() =>
-//           setIsChecked({ ...isChecked, agriculture: !isChecked.agriculture })
-//         }
-//         rightText="agriculture"
-//         rightTextStyles={{
-//           fontSize: 19,
-//           color: isChecked.fisheries ? "green" : "black",
-//           fontWeight: "bold",
-//         }}
-//         //checkBoxColor="black"
-//         checkedCheckBoxColor="green"
-//         uncheckedCheckBoxColor="black"
-//       />
-//       <CheckBox
-//        style={{ marginBottom: 16 }}
-//         isChecked={isChecked.livestock}
-//         onClick={() =>
-//           setIsChecked({ ...isChecked, livestock: !isChecked.livestock })
-//         }
-//         rightText=" livestock"
-//         rightTextStyles={{
-//           fontSize: 19,
-//           color: isChecked ? "green" : "black",
-//           fontWeight: "bold",
-//         }}
-//         //checkBoxColor="black"
-//         checkedCheckBoxColor="green"
-//         uncheckedCheckBoxColor="black"
-//       />
-//       <CheckBox
-//        style={{ marginBottom: 16 }}
-//         isChecked={isChecked.poultry}
-//         onClick={() =>
-//           setIsChecked({ ...isChecked, poultry: !isChecked.poultry })
-//         }
-//         rightText="poultry"
-//         rightTextStyles={{
-//           fontSize: 19,
-//           color: isChecked ? "green" : "black",
-//           fontWeight: "bold",
-//         }}
-//         //checkBoxColor="black"
-//         checkedCheckBoxColor="green"
-//         uncheckedCheckBoxColor="black"
-//       />
-//       <CheckBox
-//        style={{ marginBottom: 16 }}
-//         isChecked={isChecked.beekeeping}
-//         onClick={() =>
-//           setIsChecked({ ...isChecked, beekeeping: !isChecked.beekeeping })
-//         }
-//         rightText="beekeeping"
-//         rightTextStyles={{
-//           fontSize: 19,
-//           color: isChecked ? "green" : "black",
-//           fontWeight: "bold",
-//         }}
-//         //checkBoxColor="black"
-//         checkedCheckBoxColor="green"
-//         uncheckedCheckBoxColor="black"
-//       />
-//       <CheckBox
-//        style={{ marginBottom: 16 }}
-//         isChecked={isChecked.other}
-//         onClick={() =>
-//           setIsChecked({ ...isChecked,other: !isChecked.other })
-//         }
-//         rightText="other"
-//         rightTextStyles={{
-//           fontSize: 19,
-//           color: isChecked ? "green" : "black",
-//           fontWeight: "bold",
-//         }}
-//         //checkBoxColor="black"
-//         checkedCheckBoxColor="green"
-//         uncheckedCheckBoxColor="black"
-//       />
-//       <CheckBox
-//        style={{ marginBottom: 16 }}
-//         isChecked={isChecked.other}
-//         onClick={() =>
-//           setIsChecked({ ...isChecked,other: !isChecked.other })
-//         }
-//         rightText="other"
-//         rightTextStyles={{
-//           fontSize: 19,
-//           color: isChecked ? "green" : "black",
-//           fontWeight: "bold",
-//         }}
-//         //checkBoxColor="black"
-//         checkedCheckBoxColor="green"
-//         uncheckedCheckBoxColor="black"
-//       />
-//       <CheckBox
-//        style={{ marginBottom: 16 }}
-//         isChecked={isChecked.other}
-//         onClick={() =>
-//           setIsChecked({ ...isChecked,other: !isChecked.other })
-//         }
-//         rightText="other"
-//         rightTextStyles={{
-//           fontSize: 19,
-//           color: isChecked ? "green" : "black",
-//           fontWeight: "bold",
-//         }}
-//         //checkBoxColor="black"
-//         checkedCheckBoxColor="green"
-//         uncheckedCheckBoxColor="black"
-//       />
-//       <CheckBox
-//        style={{ marginBottom: 16 }}
-//         isChecked={isChecked.other}
-//         onClick={() =>
-//           setIsChecked({ ...isChecked,other: !isChecked.other })
-//         }
-//         rightText="other"
-//         rightTextStyles={{
-//           fontSize: 19,
-//           color: isChecked ? "green" : "black",
-//           fontWeight: "bold",
-//         }}
-//         //checkBoxColor="black"
-//         checkedCheckBoxColor="green"
-//         uncheckedCheckBoxColor="black"
-//       />
-//       <CheckBox
-//        style={{ marginBottom: 16 }}
-//         isChecked={isChecked.dairyfarming}
-//         onClick={() =>
-//           setIsChecked({ ...isChecked,dairyfarming: !isChecked.dairyfarming })
-//         }
-//         rightText="dairy farming"
-//         rightTextStyles={{
-//           fontSize: 19,
-//           color: isChecked ? "green" : "black",
-//           fontWeight: "bold",
-//         }}
-//         //checkBoxColor="black"
-//         checkedCheckBoxColor="green"
-//         uncheckedCheckBoxColor="black"
-//       />
-//       <CheckBox
-//        style={{ marginBottom: 16 }}
-//         isChecked={isChecked.tailoring}
-//         onClick={() =>
-//           setIsChecked({ ...isChecked,tailoring: !isChecked.other })
-//         }
-//         rightText="tailoring"
-//         rightTextStyles={{
-//           fontSize: 19,
-//           color: isChecked ? "green" : "black",
-//           fontWeight: "bold",
-//         }}
-//         //checkBoxColor="black"
-//         checkedCheckBoxColor="green"
-//         uncheckedCheckBoxColor="black"
-//       />
-//       </>
-//     </View>
-//   );
-// }
+import tw from 'twrnc'
+import Ionicons from "react-native-vector-icons/Ionicons";
+import {Image} from 'react-native'
+import {usePhone} from '../context/allContext'
+import { useNavigation } from "@react-navigation/native";
+import NotificationModal from "../components/NotificationModal";
+import Message from "../components/Message";
 
 
 
 export default function IncomePage() {
+  const {fname} = usePhone();
+  const navigation = useNavigation()
+  const [iconClicked, setIconClicked] = useState(false);
+
+  const handleIconClick = () => {
+    setIconClicked(true);
+  };
+
+  const handleModalClose = () => {
+    setIconClicked(false);
+  };
   const [isChecked, setIsChecked] = useState({
     fisheries: false,
     agriculture: false,
@@ -256,10 +67,43 @@ export default function IncomePage() {
   const checkboxesInRows = chunkArray(Object.keys(isChecked), 2);
 
   return (
+    <>
+    <View style={tw`flex mt-7 flex-row mt-10 h-18`}>
+        <View style={tw`flex-1 flex-row `}>
+          <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+            <Ionicons
+              style={tw`mt-3 mr-2`}
+              name="arrow-back"
+              size={30}
+              color="black"
+            />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.openDrawer()}>
+            <Image
+              source={require("../assets/user-profile.jpg")}
+              style={tw`w-15 h-15 rounded-full ml-1`}
+            />
+          </TouchableOpacity>
+          <View style={tw`ml-3 mt-2`}>
+            <Text style={tw`font-bold`}>Hi {fname}</Text>
+            <Text>,2021</Text>
+          </View>
+        </View>
+        <View style={tw`mt-2 mr-3`}>
+        <TouchableOpacity onPress={handleIconClick}>
+          <Ionicons name="notifications" size={28} color="black" />
+        </TouchableOpacity>
+        </View>
+        <NotificationModal
+        isVisible={iconClicked}
+        message=<Message/>
+        onClose={handleModalClose}
+      />
+      </View>
     <ScrollView>
       <View style={{ padding: 30 }}>
         {/* Assuming SingleDropdown is a component rendering something */}
-        <SingleDropdown />
+        {/* <SingleDropdown /> */}
         <View style={{ marginBottom: 16 }}>
           <Text style={{ fontSize: 22, fontWeight: "bold", color: "black", marginBottom: 20 }}>
             Select your activity
@@ -298,6 +142,7 @@ export default function IncomePage() {
                 borderWidth: 1,
                 marginBottom: 16,
                 paddingHorizontal: 10,
+                keyboardType: "numeric",
               }}
               placeholder={`Enter income earned`}
             />
@@ -330,7 +175,13 @@ export default function IncomePage() {
           </View>
         ))}
       </View>
+      <View style={tw`h-full w-full flex items-center pb-6`}>
+      <TouchableOpacity style={tw`w-40 h-13 bg-green-700 flex justify-center items-center border rounded-3xl `}>
+              <Text style={tw`text-xl text-white font-semibold`}>Submit</Text>
+      </TouchableOpacity>
+      </View>
     </ScrollView>
+    </>
   );
 }
 

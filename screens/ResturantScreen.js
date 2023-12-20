@@ -4,7 +4,7 @@ import { useRoute, useNavigation } from '@react-navigation/native';
 import tw from 'twrnc'
 import * as Icon from 'react-native-feather';
 import DishRow from '../components/dishRow';
-
+import { statepic } from '../constants/newConstants';
 
 
 export default function RestaurantScreen() {
@@ -12,13 +12,14 @@ export default function RestaurantScreen() {
     const navigation = useNavigation();
     let item = params;
 
-    console.log('item:',item.image)
+    console.log('item:', item.image)
+    console.log(item.index)
 
     return (
         <View>
             <ScrollView>
                 <View style={tw`relative`}>
-                    <Image style={tw` w-full h-72 `} source={require('../assets/images/states/tamilnadu.jpg')} />
+                    <Image style={[tw`w-full h-72`, { resizeMode: 'contain' }]} source={statepic[item.index]} />
                     <TouchableOpacity
                         onPress={() => navigation.goBack()}
                         style={tw`absolute top-14 left-4 bg-gray-50 p-2 rounded-full shadow`}>

@@ -15,6 +15,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import IncomePage from '../screens/incomepage';
 import tw from 'twrnc'
 import EditProfile from '../screens/EditProfile';
+import MarketPlace from '../screens/MarketPlace';
+import MapScreen from '../screens/MapScreen';
 
 // drawer navigation options
 import 'react-native-gesture-handler';
@@ -34,6 +36,8 @@ export default function AppNavigation() {
         <Stack.Screen name="SignUp" options={{ headerShown: false }} component={SignUpScreen} />
         <Stack.Screen name="Restaurant" options={{ headerShown: false }} component={RestaurantScreen} />
         <Stack.Screen name="Home" options={{ headerShown: false }} component={HomeScreen} />
+        <Stack.Screen name="Map" options={{ headerShown: false }} component={MapScreen} />
+        <Stack.Screen name="Marketplace" options={{ headerShown: false }} component={MarketPlace} />
       </Stack.Navigator>
     </NavigationContainer>
   )

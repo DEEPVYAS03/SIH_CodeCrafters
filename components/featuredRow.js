@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { featured } from '../constants'
 import { View, Text, TextInput, ScrollView, TouchableOpacity, Image } from "react-native";
 import tw from 'twrnc'
@@ -9,11 +9,19 @@ import axios from 'axios';
 
 
 const FeaturedRow = ({ title, description, restaurants ,image}) => {
+    const [mandis,setMandis] = useState([])
+    const mandisfetch = async () => {
+        const state = 'Maharashtra';
+        const response = await axios.get('https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b&format=json&filters%5Bstate%5D=' + state);
+        setMandis(response.data.data);
+        console.log('Mandusssss',response.data)
+        console.log('Mandis:',mandis)
+    }
+    useEffect(() => {
 
+        mandisfetch();  
 
-
-
-
+    }, [])
 
     return (
         <View>
@@ -40,6 +48,7 @@ const FeaturedRow = ({ title, description, restaurants ,image}) => {
                         item={project}
                         key={index}
                         image={image}
+                        title={title}
 
                         />
                     ))

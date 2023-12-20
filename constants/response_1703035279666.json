@@ -1,0 +1,242 @@
+{
+  "created": 1627939168,
+  "updated": 1701162785,
+  "created_date": "2021-08-02T21:19:28Z",
+  "updated_date": "2023-11-28T14:43:05Z",
+  "active": "1",
+  "index_name": "9ef84268-d588-465a-a308-a864a43d0070",
+  "org": [
+    "Ministry of Agriculture and Farmers Welfare",
+    "Department of Agriculture and Farmers Welfare"
+  ],
+  "org_type": "Central",
+  "source": "data.gov.in",
+  "title": "Current Daily Price of Various Commodities from Various Markets (Mandi)",
+  "external_ws_url": "",
+  "visualizable": "1",
+  "field": [
+    {
+      "name": "State",
+      "id": "state",
+      "type": "keyword"
+    },
+    {
+      "name": "District",
+      "id": "district",
+      "type": "keyword"
+    },
+    {
+      "name": "Market",
+      "id": "market",
+      "type": "keyword"
+    },
+    {
+      "name": "Commodity",
+      "id": "commodity",
+      "type": "keyword"
+    },
+    {
+      "name": "Variety",
+      "id": "variety",
+      "type": "keyword"
+    },
+    {
+      "name": "Grade",
+      "id": "grade",
+      "type": "keyword"
+    },
+    {
+      "name": "Arrival_Date",
+      "id": "arrival_date",
+      "type": "date"
+    },
+    {
+      "name": "Min_x0020_Price",
+      "id": "min_price",
+      "type": "double"
+    },
+    {
+      "name": "Max_x0020_Price",
+      "id": "max_price",
+      "type": "double"
+    },
+    {
+      "name": "Modal_x0020_Price",
+      "id": "modal_price",
+      "type": "double"
+    }
+  ],
+  "external_ws": 0,
+  "catalog_uuid": "6141ea17-a69d-4713-b600-0a43c8fd9a6c",
+  "sector": [
+    "Agriculture",
+    "Agricultural Marketing"
+  ],
+  "target_bucket": {
+    "field": "9ef84268-d588-465a-a308-a864a43d0070",
+    "index": "daily_mandi",
+    "type": "6141ea17-a69d-4713-b600-0a43c8fd9a6c"
+  },
+  "desc": "Current Daily Price of Various Commodities from Various Markets (Mandi)",
+  "field_exposed": [
+    {
+      "name": "State",
+      "id": "state",
+      "type": "keyword"
+    },
+    {
+      "name": "District",
+      "id": "district",
+      "type": "keyword"
+    },
+    {
+      "name": "Market",
+      "id": "market",
+      "type": "keyword"
+    },
+    {
+      "name": "Commodity",
+      "id": "commodity",
+      "type": "keyword"
+    },
+    {
+      "name": "Variety",
+      "id": "variety",
+      "type": "keyword"
+    },
+    {
+      "name": "Grade",
+      "id": "grade",
+      "type": "keyword"
+    }
+  ],
+  "message": "Resource lists",
+  "version": "2.2.0",
+  "status": "ok",
+  "total": 10610,
+  "count": 10,
+  "limit": "10",
+  "offset": "0",
+  "records": [
+    {
+      "state": "Andhra Pradesh",
+      "district": "Chittor",
+      "market": "Palamaner",
+      "commodity": "Ridgeguard(Tori)",
+      "variety": "Ridgeguard(Tori)",
+      "grade": "FAQ",
+      "arrival_date": "19/12/2023",
+      "min_price": "3000",
+      "max_price": "4000",
+      "modal_price": "3500"
+    },
+    {
+      "state": "Andhra Pradesh",
+      "district": "East Godavari",
+      "market": "Peddapuram",
+      "commodity": "Paddy(Dhan)(Common)",
+      "variety": "1001",
+      "grade": "FAQ",
+      "arrival_date": "19/12/2023",
+      "min_price": "2183",
+      "max_price": "2203",
+      "modal_price": "2193"
+    },
+    {
+      "state": "Andhra Pradesh",
+      "district": "Guntur",
+      "market": "Pidugurala(Palnadu)",
+      "commodity": "Dry Chillies",
+      "variety": "1st Sort",
+      "grade": "FAQ",
+      "arrival_date": "19/12/2023",
+      "min_price": "12000",
+      "max_price": "22000",
+      "modal_price": "17000"
+    },
+    {
+      "state": "Andhra Pradesh",
+      "district": "Guntur",
+      "market": "Tenali",
+      "commodity": "Lemon",
+      "variety": "Lemon",
+      "grade": "FAQ",
+      "arrival_date": "19/12/2023",
+      "min_price": "2000",
+      "max_price": "2700",
+      "modal_price": "2400"
+    },
+    {
+      "state": "Andhra Pradesh",
+      "district": "Kurnool",
+      "market": "Atmakur",
+      "commodity": "Paddy(Dhan)(Common)",
+      "variety": "Sona Mahsuri",
+      "grade": "FAQ",
+      "arrival_date": "19/12/2023",
+      "min_price": "2183",
+      "max_price": "2183",
+      "modal_price": "2183"
+    },
+    {
+      "state": "Andhra Pradesh",
+      "district": "Kurnool",
+      "market": "Banaganapalli",
+      "commodity": "Bengal Gram(Gram)(Whole)",
+      "variety": "Desi (Whole)",
+      "grade": "FAQ",
+      "arrival_date": "19/12/2023",
+      "min_price": "5700",
+      "max_price": "5900",
+      "modal_price": "5800"
+    },
+    {
+      "state": "Andhra Pradesh",
+      "district": "Kurnool",
+      "market": "Kurnool",
+      "commodity": "Dry Chillies",
+      "variety": "Local",
+      "grade": "FAQ",
+      "arrival_date": "19/12/2023",
+      "min_price": "4180",
+      "max_price": "20899",
+      "modal_price": "13389"
+    },
+    {
+      "state": "Andhra Pradesh",
+      "district": "Kurnool",
+      "market": "Kurnool",
+      "commodity": "Onion",
+      "variety": "Local",
+      "grade": "FAQ",
+      "arrival_date": "19/12/2023",
+      "min_price": "301",
+      "max_price": "1983",
+      "modal_price": "1619"
+    },
+    {
+      "state": "Bihar",
+      "district": "Madhubani",
+      "market": "Jainagar",
+      "commodity": "Onion",
+      "variety": "Medium",
+      "grade": "FAQ",
+      "arrival_date": "19/12/2023",
+      "min_price": "4600",
+      "max_price": "4800",
+      "modal_price": "4700"
+    },
+    {
+      "state": "Bihar",
+      "district": "Samastipur",
+      "market": "Tajpur",
+      "commodity": "Onion",
+      "variety": "Medium",
+      "grade": "FAQ",
+      "arrival_date": "19/12/2023",
+      "min_price": "3500",
+      "max_price": "3700",
+      "modal_price": "3600"
+    }
+  ]
+}

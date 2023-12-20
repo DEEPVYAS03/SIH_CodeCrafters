@@ -72,7 +72,7 @@ export default function SignUpScreen() {
           // Make the API call using Axios
           const response = await axios.post(apiUrl, requestData);
         // console.log(response)
-        setUserId(response.data.data._id);
+        await setUserId(response.data.data._id);
           // Handle the response as needed (e.g., show success message)
           Alert.alert('Success', 'Sign up successful!');
     

@@ -10,6 +10,7 @@ import '../assets/images/states/gujarat.jpg'
 import '../assets/images/states/nagaland.jpg'
 import '../assets/images/states/himachal.jpg'
 import '../assets/images/states/mp.jpg'
+import { statepic } from "../constants/newConstants";
 
 export default function Categories({ item }) { 
     const { restaurants } = item;
@@ -19,6 +20,7 @@ export default function Categories({ item }) {
     const [stateprojects,setStateprojects] =useState([])
     const navigation = useNavigation();
 
+    console.log(statepic)
     // console.log('State Projects:',stateprojects)
     const projectcat = async () => {
         try {
@@ -61,13 +63,13 @@ export default function Categories({ item }) {
                             <TouchableOpacity
                                 onPress={() => {
                                     setActiveCategory(category.id);
-                                    navigation.navigate('Restaurant', {... stateprojects[index] , ...categories[index] });
+                                    navigation.navigate('Restaurant', {... stateprojects[index] , ...categories[index] ,index});
                                 }}
                                 style={tw`w-30 h-30 rounded-[12px] shadow bg-gray-200 ${btnClass}`}
                             >
                                 <Image
                                     style={{ width: '100%', height: '100%' , resizeMode:'cover' }}
-                                    source={require('../assets/images/states/tamilnadu.jpg')}
+                                    source={statepic[index]}
                                 />
                             </TouchableOpacity>
                             <Text style={tw`text-sm ${textClass}`}>{category.state}</Text>

@@ -11,7 +11,7 @@ import { useNavigation } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { createDrawerNavigator } from '@react-navigation/drawer'
+import { DrawerItem, createDrawerNavigator } from '@react-navigation/drawer'
 import EditProfile from './EditProfile'
 import Dashboard from './Dashboard'
 import Share from './Share'
@@ -62,19 +62,15 @@ const HomeStack = () => {
             <Ionicons name="stats-chart-outline" size={24} color={color} />
           )
         }} />
-        <Drawer.Screen name="Share" component={Share} options={{
-          drawerIcon: ({ color }) => (
-            <Ionicons name="share-social-outline" size={24} color={color} />
-          )
-        }} />
-        <Drawer.Screen name="Marketplace" component={MarketPlace} options={{
+        {/* <DrawerItem label='Share' onPress={onShare}/> */}
+        {/* <Drawer.Screen name="Marketplace" component={MarketPlace} options={{
           drawerIcon: ({ color }) => (
             <Ionicons name="stats-chart" size={24} color={color} />
           )
-        }} />
+        }} /> */}
         <Drawer.Screen name="Income" component={IncomePage} options={{
           drawerIcon: ({ color }) => (
-            <Ionicons name="stats-chart" size={24} color={color} />
+            <Ionicons name="cash" size={24} color={color} />
           )
         }} />
       </Drawer.Navigator>
@@ -97,7 +93,7 @@ function HomeScreen() {
 
   const [project, setprojects] = useState();
   const [recommend, setrecommend] = useState([]);
-
+  const [mandis, setmandis] = useState([]);
   
   const projects = async () => {
 
@@ -112,7 +108,7 @@ function HomeScreen() {
    const recommendprojects = async () => {
         console.log('featured user id ', userId)
         const range=10000
-        const response = await axios.get(`https://sih-backend.vercel.app/api/user/${userId}/recommend/projets/${range}`);
+        const response = await axios.get(`https://sih-backend.vercel.app/api/user/657151e98507dda11904d869/recommend/projets/${range}`);
         setrecommend(response.data.data);
         console.log('Recommend:', response.data.data);
     }
@@ -122,6 +118,7 @@ function HomeScreen() {
     }, [userId])
 
 
+    
 
   const navigation = useNavigation();
   // const isFocused = useIsFocused();
@@ -167,6 +164,7 @@ function HomeScreen() {
             }}
           >
             {/* categories */}
+
             {
               [featured].map((item, index) => <Categories item={item} key={index} />)
 
@@ -189,6 +187,8 @@ function HomeScreen() {
                   )
                 })
               }
+
+
               {
                 [featured1].map((item, index) => {
                   return (

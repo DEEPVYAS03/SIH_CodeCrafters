@@ -7,12 +7,32 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome'
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useId, usePhone } from '../context/allContext';
-
+import { Alert } from 'react-native';
+import { Share } from 'react-native';
 
 const CustomDrawer = (props) => {
     const { userId, setUserId } = useId();
-    const {fname,lname} =usePhone();
+    const { fname, lname } = usePhone();
     const navigation = useNavigation();
+    const onShare = async () => {
+        try {
+          const result = await Share.share({
+            message:
+              "Hey, I am using Finzen App. It is a great app to manage your finances. Download it now from localhost..",
+          });
+          if (result.action === Share.sharedAction) {
+            if (result.activityType) {
+
+            } else {
+
+            }
+          } else if (result.action === Share.dismissedAction) {
+   
+          }
+        } catch (error) {
+          Alert.alert(error.message);
+        }
+      };
     return (
         <View style={{ flex: 1 }}>
             <DrawerContentScrollView {...props} >
@@ -29,7 +49,16 @@ const CustomDrawer = (props) => {
 
                 </ImageBackground>
                 <DrawerItemList {...props} />
+                <TouchableOpacity onPress={onShare}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center' , marginLeft:20, marginTop:10}}>
+                        <Ionicons name='share-outline' size={22} />
+                        <Text style={{ fontSize: 15, marginLeft: 30 }} >Share</Text>
+
+                    </View>
+                </TouchableOpacity>
             </DrawerContentScrollView>
+
+
             <View style={{ padding: 20, borderTopWidth: 1, borderTopColor: '#ccc' }}>
                 <TouchableOpacity onPress={() => {
 
@@ -37,6 +66,7 @@ const CustomDrawer = (props) => {
                     setUserId(null)
 
                 }} style={{ paddingVertical: 15 }}>
+
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <Ionicons name='exit-outline' size={22} />
                         <Text style={{ fontSize: 15, marginLeft: 5 }} >Sign Out</Text>

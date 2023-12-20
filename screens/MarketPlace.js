@@ -161,10 +161,10 @@ const MarketPlace = () => {
         <View >
             <View style={tw`flex mt-7 flex-row mt-10 h-18`}>
                 <View style={tw`flex-1 flex-row `}>
-                    <TouchableOpacity onPress={() => navigation.openDrawer()}>
+                    <TouchableOpacity onPress={() => navigation.goBack()}>
                         <Ionicons
                             style={tw`mt-2 ml-2 mr-2`}
-                            name="menu"
+                            name="arrow-back"
                             size={35}
                             color="black"
                         />
@@ -177,7 +177,7 @@ const MarketPlace = () => {
           </TouchableOpacity> */}
                     <View style={tw`ml-3 mt-2`}>
                         <Text style={tw`font-bold`}>Hi {fname}</Text>
-                        <Text>Aug 12,2021</Text>
+                        <Text>Dec 20,2023</Text>
                     </View>
                 </View>
                 <View style={tw`mt-2 mr-3`}>
