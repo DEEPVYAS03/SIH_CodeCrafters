@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import {
   View,
@@ -8,10 +6,11 @@ import {
   TouchableOpacity,
   ScrollView,
   ImageBackground,
+  StyleSheet
 } from "react-native";
 import tw from "twrnc";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { usePhone } from "../context/allContext";
+import { useLocation } from "../context/allContext";
 
 import { MyBezierLineChart, MyBarGraph } from "../components/charts";
 import { useNavigation } from "@react-navigation/native";
@@ -22,10 +21,15 @@ import {Box2} from '../components/charts'
 import {ProgressRing} from '../components/charts'
 
 
+
 const Dashboard = () => {
   const navigation = useNavigation();
-  const {fname} = usePhone();
+  const {fname} = useLocation();
   const [iconClicked, setIconClicked] = useState(false);
+  const [type,setType]=useState('')
+  const [isType, setIsType] =useState(false);
+  const[yeild,setYeild]=useState('')
+  const[isYeild, setIsYeild]=useState(false);
 
   const handleIconClick = () => {
     setIconClicked(true);
@@ -34,6 +38,16 @@ const Dashboard = () => {
   const handleModalClose = () => {
     setIconClicked(false);
   };
+
+  const handleType=()=>{
+    setIsType(true)
+    setType('Type of crop')
+  }
+
+  const handleYeild=()=>{
+    setIsYeild(true)
+    setYeild('Yeild of crop')
+  }
 
   return (
 
@@ -57,7 +71,7 @@ const Dashboard = () => {
           </TouchableOpacity>
           <View style={tw`ml-3 mt-2`}>
             <Text style={tw`font-bold`}>Hi {fname}</Text>
-            <Text>Dec 20,2023</Text>
+            <Text>Aug 12,2021</Text>
           </View>
         </View>
         <View style={tw`mt-2 mr-3`}>
@@ -73,19 +87,7 @@ const Dashboard = () => {
       </View>
 
       <ScrollView>
-        <View
-          style={tw`mt-1 bg-[#2E335A] h-40 m-1 overflow-hidden  rounded-lg`}
-        >
-          {/* My dashboard */}
-          <View style={tw`flex-row rounded-lg`}>
-            <View>
-              <Text style={tw`text-white mt-5 ml-5 text-2xl`}>My</Text>
-              <Text style={tw`text-white ml-5 text-2xl`}>Dashboard</Text>
-            </View>
-            <View style={tw`mt-2 h-38 ml-21`}>
-            <ProgressRing/>
-            </View>
-          </View>
+       
 
           {/* <View style={tw`flex flex-row`}>
           <Text style={tw`text-white text-2xl font-bold mb-5 ml-2`}>
@@ -127,25 +129,13 @@ const Dashboard = () => {
           ></View>
           <View></View>
         </View> */}
-        </View>
+        
         {/* weather updates */}
         <View style={tw`rounded-t-lg mx-1 flex flex-row bg-[#2E335A]`}>
-          <Text style={tw`text-white text-2xl font-bold mb-5 ml-2`}>
+          <Text style={tw`text-white text-xl font-bold mb-5 ml-2`}>
             Weather Updates
           </Text>
-        </View>
-
-        {/*  degress*/}
-        <View style={tw`flex-row rounded-b-lg h-35 mx-1 justify-between bg-[#2E335A]`}>
-          <View>
-            <View>
-              <Text style={tw`m-7 text-white text-2xl font-bold`}>
-                28 degree cel
-              </Text>
-            </View>
-            <View></View>
-          </View>
-          <View style={tw`h-25 w-25 overflow-hidden`}>
+          <View style={tw`h-25 w-25 overflow-hidden pb-10 `}>
             <Image
               style={tw`h-full w-full`}
               source={require("../assets/Sun_loud_rain.png")}
@@ -153,43 +143,79 @@ const Dashboard = () => {
             ></Image>
           </View>
         </View>
+
+        {/*  degress*/}
+        
         <View>
         <View style={tw`mx-1 pb-5 rounded-b-3xl bg-white  `}>
             <Text></Text>
           <MyBezierLineChart />
-          </View>
-          </View>
-        {/* dabbe */}
-        <View style={tw`h-55 py-3 flex flex-row rounded-lg bg-white mx-1 justify-between`}>
-          <View
-            style={tw`bg-gray-200  h-[95%] ml-1 w-[46.5%] rounded-3xl`}
-          >
-            <Box1/>
-            
-          </View>
-          <View
-            style={tw`bg-gray-200  h-[95%] mr-1 w-[46.5%] rounded-3xl`}
-          >
-            <Box2/>
-          </View>
 
+          </View>
+          </View>
+        
+        <View>
+        <TouchableOpacity onPress={handleType} style={styles.buttonContainer}>
+          <Text style={styles.buttonText}>
+            Click to predict crop type
+          </Text>
+        </TouchableOpacity>
         </View>
-        {/* </ImageBackground> */}
 
-        <View style={tw`mx-1 pb-5 rounded-b-3xl bg-white  `}>
-          {/* <View>
-            <Text></Text>
-          <MyBezierLineChart />
-          </View> */}
-
-
-          <View>
-          <MyBarGraph />
+        {
+          isType&&<View>
+            <View style={{marginLeft:110}}>
+            <Text>
+              Type of Crop is : ovks
+            </Text>
+            </View>
           </View>
+        }
+
+
+         
+
+        <View>
+        <TouchableOpacity onPress= {handleYeild} style={styles.buttonContainer}>
+          <Text style={styles.buttonText}>
+            Click to predict crop yield
+          </Text>
+        </TouchableOpacity>
         </View>
+
+        {
+          isYeild&&<View>
+            <View style={{marginLeft:100}}>
+            <Text>
+              Yeild of Crop is : 125 quintals
+            </Text>
+            </View>
+          </View>
+        }
+
+       
       </ScrollView>
     </>
   );
 };
 
 export default Dashboard;
+
+
+const styles = StyleSheet.create({
+  buttonContainer: {
+    backgroundColor: '#4CAF50', // Set your desired background color
+    paddingVertical: 15,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginTop: 20,
+    width:300,
+    marginLeft:30
+  },
+  buttonText: {
+    color: 'white', // Set your desired text color
+    fontSize: 16,
+    fontWeight: 'bold'
+  },
+});

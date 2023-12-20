@@ -104,8 +104,8 @@ const MarketPlace = () => {
         const dummyData = [
             {
                 Id: 1,
-                Name: "Dummy Bank",
-                Offer_Title: "Dummy Offer",
+                Name: "Dharmapuri Mandi",
+                Offer_Title: "Dharmapuri Offer",
                 Validity_Period: getFormmatedDate(new Date()), // Use the current date as dummy validity period
                 Offer_Details: "This is a dummy offer for testing purposes.",
                 Link_to_Offer: "https://example.com",
@@ -116,8 +116,56 @@ const MarketPlace = () => {
             },
             {
                 Id: 2,
-                Name: "Dummy Bank",
-                Offer_Title: "Dummy Offer",
+                Name: "Dindigull Bank",
+                Offer_Title: "Dindigull Offer",
+                Validity_Period: getFormmatedDate(new Date()), // Use the current date as dummy validity period
+                Offer_Details: "This is a dummy offer for testing purposes.",
+                Link_to_Offer: "https://example.com",
+                Type_of_Loan: "Personal",
+                Display_in_App: true,
+                Display_Order: 1,
+                Bank_Logo_URL: "https://dummylogo.com",
+            },
+            {
+                Id: 3,
+                Name: "Dharmapuri Mandi",
+                Offer_Title: "Dharmapuri Offer",
+                Validity_Period: getFormmatedDate(new Date()), // Use the current date as dummy validity period
+                Offer_Details: "This is a dummy offer for testing purposes.",
+                Link_to_Offer: "https://example.com",
+                Type_of_Loan: "Personal",
+                Display_in_App: true,
+                Display_Order: 1,
+                Bank_Logo_URL: "https://dummylogo.com",
+            },
+            {
+                Id: 4,
+                Name: "Dindigull Mandi",
+                Offer_Title: "Dindigull Offer",
+                Validity_Period: getFormmatedDate(new Date()), // Use the current date as dummy validity period
+                Offer_Details: "This is a dummy offer for testing purposes.",
+                Link_to_Offer: "https://example.com",
+                Type_of_Loan: "Personal",
+                Display_in_App: true,
+                Display_Order: 1,
+                Bank_Logo_URL: "https://dummylogo.com",
+            },
+            {
+                Id: 5,
+                Name: "Dhamapuri Mandi",
+                Offer_Title: "Dhamapuri Offer",
+                Validity_Period: getFormmatedDate(new Date()), // Use the current date as dummy validity period
+                Offer_Details: "This is a dummy offer for testing purposes.",
+                Link_to_Offer: "https://example.com",
+                Type_of_Loan: "Personal",
+                Display_in_App: true,
+                Display_Order: 1,
+                Bank_Logo_URL: "https://dummylogo.com",
+            },
+            {
+                Id: 6,
+                Name: "Harur Mandi",
+                Offer_Title: "Harur Offer",
                 Validity_Period: getFormmatedDate(new Date()), // Use the current date as dummy validity period
                 Offer_Details: "This is a dummy offer for testing purposes.",
                 Link_to_Offer: "https://example.com",

@@ -8,7 +8,7 @@ import {useId} from '../context/allContext'
 import axios from 'axios';
 
 
-const FeaturedRow = ({ title, description, restaurants ,image}) => {
+const FeaturedRow1 = ({ title, description, restaurants ,image , district,commodity,maxprice,minprice,modalprice}) => {
    
 
     return (
@@ -46,4 +46,4 @@ const FeaturedRow = ({ title, description, restaurants ,image}) => {
     );
 };
 
-export default FeaturedRow;
+export default FeaturedRow1;

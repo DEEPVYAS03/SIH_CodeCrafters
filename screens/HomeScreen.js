@@ -23,6 +23,7 @@ import IncomePage from './incomepage'
 import { ActivityIndicator } from 'react-native';
 // import { IdProvider } from './../context/allContext';
 // import { PhoneProvider } from './../context/allContext';
+import FeaturedRow1 from '../components/featuredRow1'
 
 const Drawer = createDrawerNavigator();
 
@@ -93,17 +94,22 @@ function HomeScreen() {
 
   const [project, setprojects] = useState();
   const [recommend, setrecommend] = useState([]);
-  const [mandis, setmandis] = useState([]);
-  
-  const projects = async () => {
-
-    const response = await axios.get('https://sih-backend.vercel.app/api/user/allProjects');
-
-    setprojects(response.data.data);
 
 
+  const [mandis,setMandis] = useState([])
+  const mandisfetch = async () => {
+      const state = 'Maharashtra';
+      const response = await axios.get('https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b&format=json&filters%5Bstate%5D=Tamil%20Nadu');
+      setMandis(response.data.records);
+      console.log(response.data.records)
+
+      console.log('Mandis:',mandis)
   }
+  useEffect(() => {
 
+      mandisfetch();  
+
+  }, [setMandis])
 
    const recommendprojects = async () => {
         console.log('featured user id ', userId)
@@ -118,7 +124,9 @@ function HomeScreen() {
     }, [userId])
 
 
-    
+    useEffect(() => {
+      console.log('Mandis22:',mandis)
+    },[mandis])
 
   const navigation = useNavigation();
   // const isFocused = useIsFocused();
@@ -177,7 +185,7 @@ function HomeScreen() {
               {
                 [featured1].map((item, index) => {
                   return (
-                    <FeaturedRow
+                    <FeaturedRow1
                       key={index}
                       title='Projects Recommended for you'
                       restaurants={recommend}
@@ -190,14 +198,19 @@ function HomeScreen() {
 
 
               {
-                [featured1].map((item, index) => {
+                [mandis].map((mandi, index) => {
                   return (
-                    <FeaturedRow
+                    <FeaturedRow1
                       key={index}
                       title='Mandis Beneficial for you'
                       restaurants={recommend}
                       description='Favourable mandis near your area'
                       image={require('../assets/market.jpg')}
+                      district={mandi.district}
+                      commodity={mandi.commodity}
+                      minprice={mandi.min_price}
+                      maxprice={mandi.max_price}
+                      modalprice={mandi.modal_price}
                     />
                   )
                 })
