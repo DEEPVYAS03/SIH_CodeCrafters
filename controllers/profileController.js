@@ -7,23 +7,30 @@ function formatParameter(param) {
 
 const createProfile = async (req, res) => {
     try {
-        const { name,number ,preference, address, presentIncome } = req.body;
+        const { name,number ,preference, state,district,village, presentIncome } = req.body;
         try {
-            const village = address.village;
-            const district = address. district;
-            const state = address. state;
+            // const village = village;
+            // const district = district;
+            // const state = state;
             const country = 'India';
+            const latitude = 78.11376943287331;
+            const longitude = 12.0420068;
+            // const formattedVillage = formatParameter(village);
+            // const formattedDistrict = formatParameter(district);
+            // const formattedState = formatParameter(state);
 
-            const formattedVillage = formatParameter(village);
-            const formattedDistrict = formatParameter(district);
-            const formattedState = formatParameter(state);
+            // const queryString = `${formattedVillage}+${formattedDistrict}+${formattedState}+${country}`;
 
-            const queryString = `${formattedVillage}+${formattedDistrict}+${formattedState}+${country}`;
-
-            const response = await axios.get(`https://geocode.maps.co/search?q=${queryString}`)
-            const latitude = response.data[0].lat
-            const longitude = response.data[0].lon
-
+            // const response = await axios.get(`https://geocode.maps.co/search?q=${queryString}`)
+            // if(response.data.length > 0) {
+            //  latitude = response.data[0].lat
+            //  longitude = response.data[0].lon
+            // }
+            const address = {
+                state:state,
+                district:district,
+                village:village
+            }
             try {
                 const user = new User({
                     name: name,
@@ -43,14 +50,14 @@ const createProfile = async (req, res) => {
                     "data": result
                 })
             } catch (error) {
-                return res.status(400).json({
+                return res.status(401).json({
                     "status": "error1",
                     "code": 400,
                     "message": error.message
                 })
             }
         } catch (error) {
-            return res.status(400).json({
+            return res.status(402).json({
                 "status": "error2",
                 "code": 400,
                 "message": error.message

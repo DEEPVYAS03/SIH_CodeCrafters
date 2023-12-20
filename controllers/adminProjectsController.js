@@ -1,4 +1,5 @@
 const Projects = require("../models/wdcProjectsModel")
+const ProjectSchema = require("../models/projectSchemaModel")
 
 const getProjects = async (req, res) => {
     try {
@@ -57,7 +58,43 @@ const getFilteredProjects = async (req, res) => {
 
 }
 
+
+const createProjectSchema = async(req,res) =>{
+    try{
+        const state = req.body.state
+        const district = req.body.district
+        const village = req.body.village
+        const projectName = req.body.projectName
+        const activities = req.body.activities
+        const structure = req.body.structure
+
+        const projectSchema = new ProjectSchema({
+            state:state,
+            district:district,
+            village:village,
+            projectName:projectName,
+            activities:activities,
+            structure:structure
+        })
+        const result = await projectSchema.save()
+        return res.status(200).json({
+            "status": "success",
+            "code": 200,
+            "data": result
+        })
+    }catch(error){
+        return res.status(400).json({
+            "status": "error",
+            "code": 400,
+            "message": error.message
+        })
+    }
+}
+
+
+
 module.exports = {
     getProjects,
-    getFilteredProjects
+    getFilteredProjects,
+    createProjectSchema
 }

@@ -2,12 +2,16 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const multer = require('multer');
 
 const projRoute = require("./routes/projRoutes")
 
 const app = express();
 app.use(express.json());
 app.use(cors());
+
+const storage = multer.memoryStorage()
+const upload = multer({ storage: storage })
 
 app.use((req, res, next) =>{
     console.log(req.path, req.method)
@@ -53,4 +57,4 @@ app.listen(process.env.PORT,()=>{
     console.log('Listening on port',process.env.PORT);
 })
 
-module.exports = {app}
+module.exports = {app,upload}

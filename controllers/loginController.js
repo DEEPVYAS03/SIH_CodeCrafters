@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-
+const AdminUser = require("../models/adminUserModel")
 const Otp = require('../models/otpModel');
 const User = require('../models/userModel')
 const twilio = require('twilio');
@@ -21,6 +21,16 @@ function generateOTP(length) {
 const getOTP = async (req, res) => {
     try {
         const number = req.body.number;
+        // const isRegistered = await AdminUser.findOne({number: number});
+        // if(!isRegistered) {
+        //     return res.status(403).json({
+        //         "status": "error",
+        //         "code": 403,
+        //         "message": "User not registered"
+        //     })
+        // }
+
+
         let OTP = generateOTP(6);
         const accountSid = process.env.ACCOUNT_SID;
         const authToken = process.env.AUTH_TOKEN;
@@ -28,12 +38,12 @@ const getOTP = async (req, res) => {
         const client = new twilio(accountSid, authToken);
 
         try {
-            client.messages.create({
-                body: `Your OTP is ${OTP}`,
-                to: `+919987946253`,
-                from: '+18589432913'
-            })
-                .then((message) => console.log(message.sid));
+            // client.messages.create({
+            //     body: `Your OTP is ${OTP}`,
+            //     to: `+919987946253`,
+            //     from: '+18589432913'
+            // })
+            //     .then((message) => console.log(message.sid));
 
             const otp = new Otp({ number: number, otp: OTP });
             const salt = await bcrypt.genSalt(10)

@@ -1,11 +1,12 @@
 const Projects = require("../models/wdcProjectsModel")
+const User = require("../models/userModel")
 const ExcelJS = require('exceljs')
 const path = require('path');
 
 
 const createProject = async (req, res) => {
     try {
-        const filePath = path.join(__dirname, '..', 'Report P2.xlsx');
+        const filePath = path.join(__dirname, '..', 'Projects_HP.xlsx');
         const workbook = new ExcelJS.Workbook();
         await workbook.xlsx.readFile(filePath);
 
@@ -70,6 +71,7 @@ const createProject = async (req, res) => {
 
                 const projectData = {
                     project_name: projectNamePart,
+                    activities:["Animal Husbandary","Fisheries","Dairy Farming"],
                     project_start: '2021',
                     project_end: projectEnd,
                     state: state,
@@ -97,13 +99,14 @@ const createProject = async (req, res) => {
             }
         });
 
-        await Projects.insertMany(projectsToInsert);
+        const insertedProjects = await Projects.insertMany(projectsToInsert);
 
         console.log('Data transfer completed.');
         return res.status(200).json({
             "status": "success",
             "code": 200,
-            "message": "Data transfer completed."
+            "message": "Data transfer completed.",
+            "data":insertedProjects
         });
 
     } catch (error) {
@@ -167,6 +170,25 @@ const createProject = async (req, res) => {
 //     }
 
 // }
+
+const projectCreate = (req, res) => {
+    try {
+        const project = new Projects(req.body);
+        const res = project.save();
+        return res.status(200).json({
+            "status": "success",
+            "code": 200,
+            "data": res
+        })
+    } catch (error) {
+        return res.state(400).json({
+            "status": "error",
+            "code": 400,
+            "message": error.message
+        })
+    }
+}
+
 
 const addActivities = async (req, res) => {
     try {
@@ -256,7 +278,7 @@ const locationDropDown = async (req, res) => {
     }
 }
 
-const activityDropDown = async(req,res)=>{
+const activityDropDown = async (req, res) => {
     try {
         const distinctActivities = await Projects.aggregate([
             { $unwind: "$activities" },
@@ -279,7 +301,7 @@ const activityDropDown = async(req,res)=>{
 }
 
 
-const allProjects = async(req,res)=>{
+const allProjects = async (req, res) => {
     const projects = await Projects.find();
     return res.status(200).json({
         "status": "success",
@@ -288,10 +310,219 @@ const allProjects = async(req,res)=>{
     })
 }
 
+
+const getStateWiseProjects = async (req, res) => {
+    try {
+        const states = await Projects.distinct('state');
+        const sortedStates = states.sort();
+        const allStates = [];
+        // let stateId = 1;
+        // for (let allState of states) {
+        //     allStates.push({
+        //         id: stateId++,
+        //         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGnH3pJkDhd2IGUDM4Ldbs_hKG8Fl8Ub1acA&usqp=CAU",
+        //         state: allState,
+        //         description:"Tamil Nadu is a southern Indian state with a rich cultural heritage and a growing modern economy."
+        //     });
+        // }
+        const imagePaths = [
+            'gujarat',
+            'himachal',
+            'mp',
+            'nagaland',
+            'tamilnadu'
+        ]
+        const descriptions = [
+            'Gujarat, located in western India, is renowned for its dynamic industrial sector and cultural richness.',
+            'Himachal Pradesh is a northern Indian state in the Himalayas. It\'s home to scenic mountain towns and resorts such as Dalhousie.',
+            'Madhya Pradesh, a large state in central India, retains landmarks from eras throughout Indian history.',
+            'Nagaland is a mountainous state in northeast India, bordering Myanmar. It\'s home to diverse indigenous tribes, with festivals and markets celebrating the different tribes\' culture.',
+            'Tamil Nadu is a southern Indian state with a rich cultural heritage and a growing modern economy.'
+        ]
+        for (let i = 0; i < sortedStates.length; i++) {
+            const stateIndex = states.indexOf(sortedStates[i]);
+            allStates.push({
+                id: i + 1,
+                image: imagePaths[stateIndex],
+                state: sortedStates[i],
+                description: descriptions[stateIndex]
+            });
+        }
+        const stateProjects = [];
+        let id = 1;
+        try {
+            for (let state of states) {
+                const projects = await Projects.find({ state: state }).limit(10);
+                stateProjects.push({
+                    id: id++,
+                    state: state,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9IchMavELTosGJlTUJgysfwK7xiCSevhc-Q&usqp=CAU",
+                    projects: projects
+                });
+            }
+            return res.status(200).json({
+                "status": "success",
+                "code": 200,
+                "states": allStates,
+                "projects": stateProjects
+            })
+        } catch (error) {
+            return res.status(400).json({
+                "status": "error",
+                "code": 400,
+                "message": error.message
+            });
+        }
+    } catch (error) {
+        return res.status(500).json({
+            "status": "fail",
+            "code": 500,
+            "message": error.message
+        })
+    }
+}
+
+
+// const projectList = async (req, res) => {
+//     try {
+//         const distinctStates = await Projects.distinct('state');
+//         const ress = {}
+//         try {
+//             for (let state of distinctStates) {
+//                 const districts = await Projects.distinct('district', { state: state });
+//                 const disObj = {}
+//                 for (let dist of districts) {
+//                     const villages = await Projects.aggregate([
+//                         { $match: { state: state, district: dist } },
+//                         { $group: { _id: "$village", projects: { $push: "$project" } } },
+//                         { $limit: 10 }
+//                     ]);
+
+//                     const villageObj = villages.reduce((acc, village) => {
+//                         acc[village._id] = village.projects;
+//                         return acc;
+//                     }, {});
+
+//                     disObj[dist] = villageObj;
+//                 }
+//                 ress[state] = disObj;
+//             }
+
+//             return res.status(200).json({
+//                 "status": "success",
+//                 "code": 200,
+//                 "data": ress
+//             });
+//         } catch (error) {
+//             return res.status(400).json({
+//                 "status": "error",
+//                 "code": 400,
+//                 "message": error.message
+//             });
+//         }
+//     } catch (error) {
+//         return res.status(500).json({
+//             "status": "fail",
+//             "code": 500,
+//             "message": error.message
+//         });
+//     }
+// }
+
+
+const projectList = async (req, res) => {
+    try {
+        const distinctStates = await Projects.distinct('state');
+        const ress = {};
+        
+        try {
+            for (let state of distinctStates) {
+                const districts = await Projects.distinct('district', { state: state });
+                const disObj = {};
+
+                for (let dist of districts) {
+                    const villages = await Projects.distinct('village', { state: state, district: dist });
+                    const projects = await Projects.find({ state: state, district: dist }).select('project_name');
+
+                    const projObj = {};
+                    for (let proj of projects) {
+                        projObj[proj.project_name] = villages;
+                    }
+
+                    disObj[dist] = projObj;
+                }
+
+                ress[state] = disObj;
+            }
+
+            return res.status(200).json({
+                "status": "success",
+                "code": 200,
+                "data": ress
+            });
+        } catch (error) {
+            return res.status(400).json({
+                "status": "error",
+                "code": 400,
+                "message": error.message
+            });
+        }
+    } catch (error) {
+        return res.status(500).json({
+            "status": "fail",
+            "code": 500,
+            "message": error.message
+        });
+    }
+}
+
+const getProjName = async(req,res)=>{
+    try{
+        const proj = await Projects.find({state:req.body.state,district:req.body.district,village:req.body.village})
+        return res.status(200).json({
+            "status": "success",
+            "code": 200,
+            "data": proj
+        })
+    }catch(error){
+        return res.status(500).json({
+            "status": "fail",
+            "code": 500,
+            "message": error.message
+        });
+    }
+}
+
+const getProjectNameUserBased = async(req,res)=>{
+    try{
+        const userId = req.params.id;
+        const user = await User.findById(userId);
+        const state = user.address.state.toUpperCase();
+        const district = user.address.district.toUpperCase();
+        const projects = await Projects.find({state:state,district:district},{project_name:1}).distinct('project_name');
+        return res.status(200).json({
+            "status": "success",
+            "code": 200,
+            "data": projects
+        })
+    }catch(error){
+        return res.status(500).json({
+            "status": "fail",
+            "code": 500,
+            "message": error.message
+        });
+    }
+}
+
 module.exports = {
     createProject,
     addActivities,
     locationDropDown,
     activityDropDown,
-    allProjects
+    allProjects,
+    getStateWiseProjects,
+    projectCreate,
+    projectList,
+    getProjName,
+    getProjectNameUserBased
 }
