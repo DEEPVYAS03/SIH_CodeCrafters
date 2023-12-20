@@ -10,13 +10,14 @@ import Tablecheck from './components/Tablecheck'
 import  Calendar  from './components/Calendar';
 import SidebarComponent from './globalComponents/Sidebar';
 import Topbar from './globalComponents/Topbar';
-import Tableau from "./pages/Tableau"
 import { ProSidebarProvider } from "react-pro-sidebar";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./customs/theme";
 import Layout1 from './layout/Layout';
 // export const AuthContext = createContext();
 import {AuthProvider} from './context/AuthContext'
+import Farmer from './pages/Farmer';
+import Schema from './pages/Schema';
 
 
 function App() {
@@ -40,7 +41,8 @@ function App() {
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/table1" element={<Tablecheck />} />
               <Route path="/map" element = {<Map />} />
-              <Route path="/tableau" element = {<Tableau />} />
+              <Route path='/farmer' element={<Farmer/>} />
+              <Route path='/schema' element={<Schema/>} />
               </Routes>
               </Router>
           </div>

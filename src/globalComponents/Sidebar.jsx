@@ -12,13 +12,13 @@ import { useNavigate } from "react-router-dom";
 
 function SidebarComponent() {
   const { collapseSidebar } = useProSidebar();
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
+  // const theme = useTheme();
+  // const colors = tokens(theme.palette.mode);
   const Navigate= useNavigate();
 
   return (
     <div id="app" style={({ height: "100vh" }, { display: "flex" })}>
-      <Sidebar style={{ height: "100vh" ,color: colors.primary[400]}}>
+      <Sidebar style={{ height: "100vh" }}>
         <Menu>
           <MenuItem
             icon={<MenuOutlinedIcon />}
@@ -31,11 +31,8 @@ function SidebarComponent() {
             <h2>Admin</h2>
           </MenuItem>
           <MenuItem icon={<HomeOutlinedIcon />} onClick={()=>{Navigate("/home")}}>Home</MenuItem>
-          <MenuItem icon={<PeopleOutlinedIcon />}>Team</MenuItem>
-          <MenuItem icon={<ContactsOutlinedIcon />}>Contacts</MenuItem>
-          <MenuItem icon={<ReceiptOutlinedIcon />}>Profile</MenuItem>
-          <MenuItem icon={<HelpOutlineOutlinedIcon />}>FAQ</MenuItem>
-          <MenuItem icon={<CalendarTodayOutlinedIcon /> } onClick={()=>{Navigate("/calendar")}}>Calendar</MenuItem>
+          <MenuItem icon={<PeopleOutlinedIcon />} onClick={()=>{Navigate("/Schema")}}>Schema</MenuItem>
+          <MenuItem icon={<ContactsOutlinedIcon />} onClick={()=>{Navigate("/farmer")}}>Users</MenuItem>
         </Menu>
       </Sidebar>
       {/* <main>
