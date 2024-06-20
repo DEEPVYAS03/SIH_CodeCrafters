@@ -38,7 +38,7 @@ export const featured = {
     restaurants: [
         {
             id: 1,
-            image: require('../assets/images/pizza.png'),
+            // image: require('../'),
             description: 'Tamil Nadu, located in southern India, is a culturally rich state renowned for its historical heritage, including ancient temples and vibrant traditions.',
             lng: -85.5324269,
             lat: 38.2145602,
@@ -48,21 +48,21 @@ export const featured = {
                    name: 'WDC1',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
                 {
                    id: 2,
                    name: 'WDC2',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
                 {
                    id: 3,
                    name: 'WDC3',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
             ]
     
@@ -73,7 +73,7 @@ export const featured = {
         {
             id: 2,
             name: 'Papa Johns',
-            image: require('../assets/images/pizza.png'),
+            // image: require('../assets/images/pizza.png'),
             description: 'IBIBIBWS',
             lng: -85.5324269,
             lat: 38.2145602,
@@ -83,21 +83,21 @@ export const featured = {
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
                 {
                    id: 2,
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
                 {
                    id: 3,
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
             ]
     
@@ -105,7 +105,7 @@ export const featured = {
         {
             id: 3,
             name: 'Papa Johns',
-            image: require('../assets/images/pizza.png'),
+            // image: require('../assets/images/pizza.png'),
             description: 'Hot and spicy pizzas',
             lng: -85.5324269,
             lat: 38.2145602,
@@ -119,21 +119,21 @@ export const featured = {
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
                 {
                    id: 2,
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
                 {
                    id: 3,
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
             ]
     
@@ -141,7 +141,7 @@ export const featured = {
         {
             id: 4,
             name: 'Papa Johns',
-            image: require('../assets/images/pizza.png'),
+            // image: require('../assets/images/pizza.png'),
             description: 'Hot and spicy pizzas',
             lng: -85.5324269,
             lat: 38.2145602,
@@ -155,21 +155,21 @@ export const featured = {
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
                 {
                    id: 2,
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
                 {
                    id: 3,
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
             ]
     
@@ -177,7 +177,7 @@ export const featured = {
         {
             id: 5,
             name: 'Papa Johns',
-            image: require('../assets/images/pizza.png'),
+            // image: require('../assets/images/pizza.png'),
             description: 'Hot and spicy pizzas',
             lng: -85.5324269,
             lat: 38.2145602,
@@ -191,21 +191,21 @@ export const featured = {
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
                 {
                    id: 2,
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
                 {
                    id: 3,
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
             ]
     
@@ -213,7 +213,7 @@ export const featured = {
         {
             id: 6,
             name: 'Papa Johns',
-            image: require('../assets/images/pizza.png'),
+            // image: require('../assets/images/pizza.png'),
             description: 'Hot and spicy pizzas',
             lng: -85.5324269,
             lat: 38.2145602,
@@ -227,21 +227,21 @@ export const featured = {
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
                 {
                    id: 2,
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
                 {
                    id: 3,
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
             ]
     
@@ -269,21 +269,21 @@ export const featured1 = {
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
                 {
                    id: 2,
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
                 {
                    id: 3,
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
             ]
     
@@ -304,21 +304,21 @@ export const featured1 = {
                 name: 'pizza',
                 description: 'cheezy garlic pizza',
                 price: 10,
-                image:  require('../assets/images/pizzaDish.png')
+               //  image:  require('../assets/images/pizzaDish.png')
              },
              {
                 id: 2,
                 name: 'pizza',
                 description: 'cheezy garlic pizza',
                 price: 10,
-                image:  require('../assets/images/pizzaDish.png')
+               //  image:  require('../assets/images/pizzaDish.png')
              },
              {
                 id: 3,
                 name: 'pizza',
                 description: 'cheezy garlic pizza',
                 price: 10,
-                image:  require('../assets/images/pizzaDish.png')
+               //  image:  require('../assets/images/pizzaDish.png')
              },
          ]
  
@@ -339,21 +339,21 @@ export const featured1 = {
              name: 'pizza',
              description: 'cheezy garlic pizza',
              price: 10,
-             image:  require('../assets/images/pizzaDish.png')
+            //  image:  require('../assets/images/pizzaDish.png')
           },
           {
              id: 2,
              name: 'pizza',
              description: 'cheezy garlic pizza',
              price: 10,
-             image:  require('../assets/images/pizzaDish.png')
+            //  image:  require('../assets/images/pizzaDish.png')
           },
           {
              id: 3,
              name: 'pizza',
              description: 'cheezy garlic pizza',
              price: 10,
-             image:  require('../assets/images/pizzaDish.png')
+            //  image:  require('../assets/images/pizzaDish.png')
           },
       ]
 
@@ -374,21 +374,21 @@ export const featured1 = {
           name: 'pizza',
           description: 'cheezy garlic pizza',
           price: 10,
-          image:  require('../assets/images/pizzaDish.png')
+         //  image:  require('../assets/images/pizzaDish.png')
        },
        {
           id: 2,
           name: 'pizza',
           description: 'cheezy garlic pizza',
           price: 10,
-          image:  require('../assets/images/pizzaDish.png')
+         //  image:  require('../assets/images/pizzaDish.png')
        },
        {
           id: 3,
           name: 'pizza',
           description: 'cheezy garlic pizza',
           price: 10,
-          image:  require('../assets/images/pizzaDish.png')
+         //  image:  require('../assets/images/pizzaDish.png')
        },
    ]
 
@@ -403,7 +403,7 @@ export const featured2 = {
         {
             id: 1,
             name: 'Papa Johns',
-            image: require('../assets/images/pizza.png'),
+            // image: require('../assets/images/pizza.png'),
             description: 'Hot and spicy pizzas',
             lng: -85.5324269,
             lat: 38.2145602,
@@ -417,21 +417,21 @@ export const featured2 = {
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
                 {
                    id: 2,
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
                 {
                    id: 3,
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
             ]
     
@@ -439,7 +439,7 @@ export const featured2 = {
         {
             id: 2,
             name: 'Papa Johns',
-            image: require('../assets/images/pizza.png'),
+            // image: require('../assets/images/pizza.png'),
             description: 'Hot and spicy pizzas',
             lng: -85.5324269,
             lat: 38.2145602,
@@ -453,21 +453,21 @@ export const featured2 = {
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
                 {
                    id: 2,
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
                 {
                    id: 3,
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
             ]
     
@@ -475,7 +475,7 @@ export const featured2 = {
         {
             id: 3,
             name: 'Papa Johns',
-            image: require('../assets/images/pizza.png'),
+            // image: require('../assets/images/pizza.png'),
             description: 'Hot and spicy pizzas',
             lng: -85.5324269,
             lat: 38.2145602,
@@ -489,21 +489,21 @@ export const featured2 = {
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
                 {
                    id: 2,
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
                 {
                    id: 3,
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
             ]
     
@@ -511,7 +511,7 @@ export const featured2 = {
         {
             id: 4,
             name: 'Papa Johns',
-            image: require('../assets/images/pizza.png'),
+            // image: require('../assets/images/pizza.png'),
             description: 'Hot and spicy pizzas',
             lng: -85.5324269,
             lat: 38.2145602,
@@ -525,21 +525,21 @@ export const featured2 = {
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
                 {
                    id: 2,
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
                 {
                    id: 3,
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
             ]
     
@@ -547,7 +547,7 @@ export const featured2 = {
         {
             id: 5,
             name: 'Papa Johns',
-            image: require('../assets/images/pizza.png'),
+            // image: require('../assets/images/pizza.png'),
             description: 'Hot and spicy pizzas',
             lng: -85.5324269,
             lat: 38.2145602,
@@ -561,21 +561,21 @@ export const featured2 = {
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
                 {
                    id: 2,
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
                 {
                    id: 3,
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
             ]
     
@@ -583,7 +583,7 @@ export const featured2 = {
         {
             id: 6,
             name: 'Papa Johns',
-            image: require('../assets/images/pizza.png'),
+            // image: require('../assets/images/pizza.png'),
             description: 'Hot and spicy pizzas',
             lng: -85.5324269,
             lat: 38.2145602,
@@ -597,21 +597,21 @@ export const featured2 = {
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
                 {
                    id: 2,
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
                 {
                    id: 3,
                    name: 'pizza',
                    description: 'cheezy garlic pizza',
                    price: 10,
-                   image:  require('../assets/images/pizzaDish.png')
+                  //  image:  require('../assets/images/pizzaDish.png')
                 },
             ]
     
